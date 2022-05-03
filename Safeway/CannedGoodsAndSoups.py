@@ -3,11 +3,12 @@ import json
 import pandas as pd
 import time
 
-def SafewayCannedGoodBeans():
-    filename = "Beans"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3847798990637&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D125&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+payload={}
+
+def Beans():
+  filename = "Beans"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3847798990637&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D125&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -21,14 +22,13 @@ def SafewayCannedGoodBeans():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    
-    SafewayRequest(url, headers, payload, filename)
-def SafewayCannedGoodFruits():
-    filename = "Fruits"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3815919066498&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D128&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+
+  SafewayRequest(url, headers, payload, filename)
+def Fruit():
+  filename = "Fruits"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3815919066498&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D128&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -42,13 +42,12 @@ def SafewayCannedGoodFruits():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayCannedGoodMeals():
-    filename = "Meals"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5150859612503&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D131&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def GoodMeal():
+  filename = "Meals"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5150859612503&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D131&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -62,13 +61,12 @@ def SafewayCannedGoodMeals():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayCannedGoodMeat():
-    filename = "Meat"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4184297075873&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_9_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D134&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Meat():
+  filename = "Meat"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4184297075873&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_9_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D134&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -82,13 +80,12 @@ def SafewayCannedGoodMeat():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayCannedGoodSeafoodAndFish():
-    filename = "SeafppdAndFish"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2659034354145&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_5&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D137&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def SeafoodAndFish():
+  filename = "SeafoodAndFish"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2659034354145&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_5&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D137&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -102,13 +99,12 @@ def SafewayCannedGoodSeafoodAndFish():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayCannedGoodTomatoes():
-    filename = "Tomatoes"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5167928583642&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D140&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Tomatoes():
+  filename = "Tomatoes"
+  url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5167928583642&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D140&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -122,12 +118,11 @@ def SafewayCannedGoodTomatoes():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayCannedGoodVegetables():
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Vegetables():
   filename = "Vegetables"
-  url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1430824858300&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D143&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-  payload={}
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1430824858300&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_9_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D143&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
   headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
@@ -144,10 +139,9 @@ def SafewayCannedGoodVegetables():
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
 }
   SafewayRequest(url, headers, payload, filename)
-def SafewayCannedGoodSoupsAndRamen():
+def SoupsAndRamen():
   filename = "SoupsAndRamen"
-  url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8471162493544&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_9_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D146&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-  payload={}
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8471162493544&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_9_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D146&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
   headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
@@ -164,10 +158,9 @@ def SafewayCannedGoodSoupsAndRamen():
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
 }
   SafewayRequest(url, headers, payload, filename)
-def SafewayCannedGoodStocksAndBrothsAndBouillon():
+def StocksAndBrothsAndBouillon():
   filename = "StocksAndBrothsAndBouillon"
-  url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8471162493544&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_9_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D146&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-  payload={}
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8471162493544&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_9_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D146&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
   headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
@@ -184,6 +177,7 @@ def SafewayCannedGoodStocksAndBrothsAndBouillon():
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
 }
   SafewayRequest(url, headers, payload, filename)
+
 def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName): 
   prods = pd.DataFrame([])
   for rows in range(30, 1000, 30):
@@ -207,16 +201,3 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName):
   prods = prods.from_records(pd.json_normalize(newData)) 
   prods.to_csv('Safeway-CannedGood' + str(fileName) + '.csv')
 
-###############################
-# Main Program
-###############################
-
-SafewayCannedGoodBeans()
-SafewayCannedGoodFruits()
-SafewayCannedGoodMeals()
-SafewayCannedGoodMeat()
-SafewayCannedGoodSeafoodAndFish()
-SafewayCannedGoodTomatoes()
-SafewayCannedGoodVegetables()
-SafewayCannedGoodSoupsAndRamen()
-SafewayCannedGoodStocksAndBrothsAndBouillon()

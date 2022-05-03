@@ -3,11 +3,12 @@ import json
 import pandas as pd
 import time
 
-def SafewayBreakfastBarsAndBites():
-    filename = "BarsAndBites"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1811884135273&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_7_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D102&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+payload={}
+
+def BarsAndBites():
+  filename = "BarsAndBites"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1811884135273&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_7_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D102&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -21,13 +22,12 @@ def SafewayBreakfastBarsAndBites():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBreakfastCereals():
-    filename = "Cereals"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3953125235895&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_7_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D104&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Cereal():
+  filename = "Cereals"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3953125235895&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_7_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D104&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -41,13 +41,12 @@ def SafewayBreakfastCereals():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBreakfastFrozen():
-    filename = "Frozen"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3228653870258&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=20&start=20&search-type=category&category-id=1_7_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D106&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Frozen():
+  filename = "Frozen"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3228653870258&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_7_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D106&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -61,11 +60,11 @@ def SafewayBreakfastFrozen():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBreakfastDrinks():
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Drink():
     filename = "Drinks"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5080172520814&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_7_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D109&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5080172520814&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_7_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D109&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     payload={}
     headers = {
   'authority': 'www.safeway.com',
@@ -83,11 +82,10 @@ def SafewayBreakfastDrinks():
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
 }
     SafewayRequest(url, headers, payload, filename)
-def SafewayBreakfastPancakeAndWaffleMix():
-    filename = "PancakeAndWaffleMixes"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=9863088678166&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_7_5&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D112&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+def PancakeAndWaffleMix():
+  filename = "PancakeAndWaffleMixes"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=9863088678166&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_7_5&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D112&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -101,13 +99,12 @@ def SafewayBreakfastPancakeAndWaffleMix():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBreakfastSyrup():
-    filename = "Syrup"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4391838902790&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_7_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D115&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Syrup():
+  filename = "Syrup"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4391838902790&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_7_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D115&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -121,13 +118,12 @@ def SafewayBreakfastSyrup():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBreakfastToasterPastries():
-    filename = "ToasterPastries"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3378363953139&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_7_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D118&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def ToasterPastries():
+  filename = "ToasterPastries"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3378363953139&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_7_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D118&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -141,8 +137,8 @@ def SafewayBreakfastToasterPastries():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
+  }
+  SafewayRequest(url, headers, payload, filename)
 
 def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName): 
   prods = pd.DataFrame([])
@@ -167,14 +163,3 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName):
   prods = prods.from_records(pd.json_normalize(newData)) 
   prods.to_csv('Safeway-Breakfast' + str(fileName) + '.csv')
 
-###############################
-# Main Program
-###############################
-
-# SafewayBreakfastBarsAndBites()
-# SafewayBreakfastCereals()
-# SafewayBreakfastFrozen()
-# SafewayBreakfastDrinks()
-# SafewayBreakfastPancakeAndWaffleMix()
-# SafewayBreakfastSyrup()
-# SafewayBreakfastToasterPastries()

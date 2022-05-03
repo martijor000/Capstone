@@ -3,11 +3,12 @@ import json
 import pandas as pd
 import time
 
-def SafewayBakerySandwichBreadWebScrape(): 
-    filename = "SandwichBread"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3963844365960&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_10&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D44&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+payload={}
+
+def SandwichBread(): 
+  filename = "SandwichBread"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3963844365960&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_10&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D44&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -21,12 +22,11 @@ def SafewayBakerySandwichBreadWebScrape():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-    }
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBakeryFlatBreadWebScrape(): 
-    filename = "FlatBreads"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def FlatBread(): 
+  filename = "FlatBreads"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -40,13 +40,12 @@ def SafewayBakeryFlatBreadWebScrape():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    url ="https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8512056450299&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_2_9&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D49&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBakeryDesertsWebScrape(): 
-    filename = "Deserts"
-    payload={}
-    headers = {
+  }
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8512056450299&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_2_9&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D49&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  SafewayRequest(url, headers, payload, filename)
+def Desert(): 
+  filename = "Deserts"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -60,14 +59,13 @@ def SafewayBakeryDesertsWebScrape():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    url ="https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1786612225886&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D52&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBakeryCookieWebScrape(): 
-    filename = "Cookies"
-    url ="https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4206356419870&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D55&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1786612225886&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D52&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  SafewayRequest(url, headers, payload, filename)
+def Cookie(): 
+  filename = "Cookies"
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4206356419870&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D55&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -81,13 +79,12 @@ def SafewayBakeryCookieWebScrape():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBakeryCakeWebScrape(): 
-    filename = "Cakes"
-    url ="https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=7605338464230&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_2_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D58&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Cake(): 
+  filename = "Cakes"
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=7605338464230&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_2_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D58&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -101,13 +98,12 @@ def SafewayBakeryCakeWebScrape():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBakeryBunsAndRollsWebScrape(): 
-    filename = "BunsAndRolls"
-    url ="https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4628365043867&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_5&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D61&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def BunAndRoll(): 
+  filename = "BunsAndRolls"
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4628365043867&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_5&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D61&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -121,13 +117,12 @@ def SafewayBakeryBunsAndRollsWebScrape():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBakeryBreakfastDonutsWebScrape(): 
-    filename = "BreakfastDonut"
-    url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1963338995815&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D64&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def BreakfastDonut(): 
+  filename = "BreakfastDonut"
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1963338995815&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D64&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -141,13 +136,12 @@ def SafewayBakeryBreakfastDonutsWebScrape():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBakeryCateringTrays():
-    filename = "CateringTrays"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=7173898556873&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_2_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D69&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def CateringTray():
+  filename = "CateringTrays"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=7173898556873&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_2_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D69&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -161,17 +155,16 @@ def SafewayBakeryCateringTrays():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBakeryBaguettesFrenchBread():
-    filename = "BaguettesFrenchBread"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8685514258094&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D72&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
-    'authority': 'www.safeway.com',
-    'accept': 'application/json, text/plain, */*',
-    'accept-language': 'en-US,en;q=0.9',
-    'cookie': 'ADRUM_BTa=R%3A88%7Cg%3A699c3e52-216b-4aba-8c58-8263128c72eb%7Cn%3Asafeway-loyalty_d99a98d0-07cc-4871-98b7-0beac77d0580; ADRUM_BT1=R%3A88%7Ci%3A3313187%7Ce%3A171%7Cd%3A168; SameSite=None; safeway_ga=GA1.2.1007655441.1642183783; visid_incap_1610353=C6jZu81NRRqgbzwUkiBufCwoS2IAAAAAQUIPAAAAAADon/9DcCZd8vODizgnIvcy; aam_uuid=48286462568079877321785283656852940828; _gcl_au=1.1.1370304885.1649266627; _fbp=fb.1.1649266627349.646321825; _pin_unauth=dWlkPVpUSXlPVFl3Wm1RdE9EWXpOUzAwT1RZMExXRmpaREF0Wm1NMk1XSmlORFU0T0RWbA; _ga=GA1.1.1007655441.1642183783; _gac_UA-172784514-2=1.1649526980.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _gcl_aw=GCL.1649526981.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _gcl_dc=GCL.1649526981.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _fwnguid=f3845b1e-554e-43d7-b304-af6a09333fb6; __qca=P0-192704564-1649527253282; AMCVS_A7BF3BC75245ADF20A490D4D%40AdobeOrg=1; ECommBanner=safeway; ECommSignInCount=0; at_check=true; SAFEWAY_MODAL_LINK=; s_cc=true; safeway_ga_gid=GA1.2.1424596250.1651015677; _clck=1f44y5o|1|f0z|0; ADRUM=s=1651020791821&r=https%3A%2F%2Fwww.safeway.com%2Fshop%2Faisles.3132.html; incap_ses_2102_1610353=nhIQMBSeIz9EEk1P5s0rHe27aGIAAAAA2F9nJ+KIRxm+t2bQZJyiKA==; reese84=3:cfKToMd937StsgSNxrDH1A==:omtbbpzaCv3W53hv/2SHpq63HOSOpVlgoIiPvH8psiTnX2FgMjWKHkySjBS28j4jPecYvEy+dp5pTAtAtKhR3JT/ADQ9IKFnqd4jv6tO7SUHN7dmG9IIQmDvAit2fEitG1IHOcGKRq/B5GoDpD3NmqiCDwgKt0tq3ZoZfE4sSHGlR0ah7+9MQzwNVc88pg260Zo8X/MWqmroW38oj3q2MmQwBTz2sj49Qdj7hGrRnlJMwM9bB5vm8dWq7ZKUuzEnU26w6q4VcC4tWu3W366nHhTFUiwS7d6Z7CNRwjbDRjBLVj7NF32Sb8xZe9XWh1nR5ajByz88NGHNerKCEXdm0m61NTK4y/w+dT/0/LT4PywRZz/5nO1EXCQ1Zj7UXxx9/ebus7AY3BVtMlwv2tyAEOk6BHa3Uall0Q6rtRW9GhfHTNt9F4qwkgfOA7bkev+X:89GozdGLW8c8CYF0TL8oxhaIm8ddnh8t/4zP7CXn+78=; AMCV_A7BF3BC75245ADF20A490D4D%40AdobeOrg=-1124106680%7CMCIDTS%7C19110%7CMCMID%7C53070417963508696801324674344628904632%7CMCAAMLH-1651635849%7C9%7CMCAAMB-1651635849%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1651038249s%7CNONE%7CvVersion%7C5.2.0; abs_gsession=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%7D%7D; SWY_SYND_USER_INFO=%7B%22storeAddress%22%3A%22%22%2C%22storeZip%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%2C%22preference%22%3A%22J4U%22%7D; abs_previouslogin=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%7D%7D; s_vncm=1651388399271%26vn%3D5; s_ivc=true; SWY_SHARED_SESSION_INFO=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%2C%22preference%22%3A%22J4U%22%2C%22Selection%22%3A%22user%22%2C%22userData%22%3A%7B%7D%7D%2C%22J4U%22%3A%7B%22storeId%22%3A%223132%22%2C%22zipcode%22%3A%2294611%22%2C%22userData%22%3A%7B%7D%7D%2C%22SHOP%22%3A%7B%22storeId%22%3A%223132%22%2C%22zipcode%22%3A%2294611%22%2C%22userData%22%3A%7B%7D%7D%7D%7D; nlbi_1610353=63yCF0hfnXF8Ys1j6eNT2gAAAACn3oGeXIMo/x1ExsqAXT4a; _gat_gtag_UA_172784514_2=1; _ga_LZL2CD3SX2=GS1.1.1651031063.6.0.1651031344.0; mbox=PC#9b6c5b75050b44f89bb0e0946900cf45.35_0#1714276145|session#64da29127a144affa4098f5a32068608#1651033205; gpv_Page=safeway%3Adelivery%3Aaisles%3Abread-bakery%3Abaguettes-french-bread; s_nr30=1651031345221-Repeat; _br_uid_2=uid%3D9587123903556%3Av%3D12.0%3Ats%3D1649266626599%3Ahc%3D74; _uetsid=81ce17c0c5b811eca027fdeae43abea5; _uetvid=268bbf80756511ec99edb56d6bb4e245; nlbi_1610353_2147483392=NRkNN84JfgeweXQk6eNT2gAAAAANaou58yeU5Qj+iCW24BdJ; _derived_epik=dj0yJnU9Z1V2TGprU3lab0NOWTd5blRSTU8zdl91ZjJ4WXhNZUombj1MTDYyX1F5blBhQUpEV2xFdUxkd1JBJm09MSZ0PUFBQUFBR0pvdlRNJnJtPTEmcnQ9QUFBQUFHSm92VE0; _clsk=rhr7iw|1651031347822|7|1|d.clarity.ms/collect; s_sq=sfsafewayprod1%3D%2526c.%2526a.%2526activitymap.%2526page%253Dsafeway%25253Adelivery%25253Aaisles%25253Abread-bakery%25253Abaguettes-french-bread%2526link%253DLoad%252520more%2526region%253Dsearch-grid_0%2526pageIDType%253D1%2526.activitymap%2526.a%2526.c%2526pid%253Dsafeway%25253Adelivery%25253Aaisles%25253Abread-bakery%25253Abaguettes-french-bread%2526pidt%253D1%2526oid%253DLoad%252520more%2526oidt%253D3%2526ot%253DSUBMIT; ADRUM_BT1=R%3A94%7Ci%3A3313187%7Ce%3A174%7Cd%3A317; ADRUM_BTa=R%3A94%7Cg%3Ab9f9062a-6376-4406-bdf6-9688984443a6%7Cn%3Asafeway-loyalty_d99a98d0-07cc-4871-98b7-0beac77d0580; SameSite=None; incap_ses_2102_1610353=nYmOZo5eV0ssNexO5s0rHXR9aGIAAAAAkFE3DJEqEIKPL08tzOCD7w==; nlbi_1610353=n9xqf71BMxXk2I0E6eNT2gAAAABLbFKOCzCjz1RYno59ne0g; visid_incap_1610353=EjDbpG8oRQ2swTN7o/8MWKvJUWIAAAAAQUIPAAAAAAAWPH6+Feg0fTaOdEPdTY+I',
+  }
+  SafewayRequest(url, headers, payload, filename)
+def BaguetteFrenchBread():
+  filename = "BaguettesFrenchBread"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8685514258094&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D72&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
+  'authority': 'www.safeway.com',
+  'accept': 'application/json, text/plain, */*',
+  'accept-language': 'en-US,en;q=0.9',
+  'cookie': 'ADRUM_BTa=R%3A88%7Cg%3A699c3e52-216b-4aba-8c58-8263128c72eb%7Cn%3Asafeway-loyalty_d99a98d0-07cc-4871-98b7-0beac77d0580; ADRUM_BT1=R%3A88%7Ci%3A3313187%7Ce%3A171%7Cd%3A168; SameSite=None; safeway_ga=GA1.2.1007655441.1642183783; visid_incap_1610353=C6jZu81NRRqgbzwUkiBufCwoS2IAAAAAQUIPAAAAAADon/9DcCZd8vODizgnIvcy; aam_uuid=48286462568079877321785283656852940828; _gcl_au=1.1.1370304885.1649266627; _fbp=fb.1.1649266627349.646321825; _pin_unauth=dWlkPVpUSXlPVFl3Wm1RdE9EWXpOUzAwT1RZMExXRmpaREF0Wm1NMk1XSmlORFU0T0RWbA; _ga=GA1.1.1007655441.1642183783; _gac_UA-172784514-2=1.1649526980.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _gcl_aw=GCL.1649526981.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _gcl_dc=GCL.1649526981.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _fwnguid=f3845b1e-554e-43d7-b304-af6a09333fb6; __qca=P0-192704564-1649527253282; AMCVS_A7BF3BC75245ADF20A490D4D%40AdobeOrg=1; ECommBanner=safeway; ECommSignInCount=0; at_check=true; SAFEWAY_MODAL_LINK=; s_cc=true; safeway_ga_gid=GA1.2.1424596250.1651015677; _clck=1f44y5o|1|f0z|0; ADRUM=s=1651020791821&r=https%3A%2F%2Fwww.safeway.com%2Fshop%2Faisles.3132.html; incap_ses_2102_1610353=nhIQMBSeIz9EEk1P5s0rHe27aGIAAAAA2F9nJ+KIRxm+t2bQZJyiKA==; reese84=3:cfKToMd937StsgSNxrDH1A==:omtbbpzaCv3W53hv/2SHpq63HOSOpVlgoIiPvH8psiTnX2FgMjWKHkySjBS28j4jPecYvEy+dp5pTAtAtKhR3JT/ADQ9IKFnqd4jv6tO7SUHN7dmG9IIQmDvAit2fEitG1IHOcGKRq/B5GoDpD3NmqiCDwgKt0tq3ZoZfE4sSHGlR0ah7+9MQzwNVc88pg260Zo8X/MWqmroW38oj3q2MmQwBTz2sj49Qdj7hGrRnlJMwM9bB5vm8dWq7ZKUuzEnU26w6q4VcC4tWu3W366nHhTFUiwS7d6Z7CNRwjbDRjBLVj7NF32Sb8xZe9XWh1nR5ajByz88NGHNerKCEXdm0m61NTK4y/w+dT/0/LT4PywRZz/5nO1EXCQ1Zj7UXxx9/ebus7AY3BVtMlwv2tyAEOk6BHa3Uall0Q6rtRW9GhfHTNt9F4qwkgfOA7bkev+X:89GozdGLW8c8CYF0TL8oxhaIm8ddnh8t/4zP7CXn+78=; AMCV_A7BF3BC75245ADF20A490D4D%40AdobeOrg=-1124106680%7CMCIDTS%7C19110%7CMCMID%7C53070417963508696801324674344628904632%7CMCAAMLH-1651635849%7C9%7CMCAAMB-1651635849%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1651038249s%7CNONE%7CvVersion%7C5.2.0; abs_gsession=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%7D%7D; SWY_SYND_USER_INFO=%7B%22storeAddress%22%3A%22%22%2C%22storeZip%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%2C%22preference%22%3A%22J4U%22%7D; abs_previouslogin=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%7D%7D; s_vncm=1651388399271%26vn%3D5; s_ivc=true; SWY_SHARED_SESSION_INFO=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%2C%22preference%22%3A%22J4U%22%2C%22Selection%22%3A%22user%22%2C%22userData%22%3A%7B%7D%7D%2C%22J4U%22%3A%7B%22storeId%22%3A%223132%22%2C%22zipcode%22%3A%2294611%22%2C%22userData%22%3A%7B%7D%7D%2C%22SHOP%22%3A%7B%22storeId%22%3A%223132%22%2C%22zipcode%22%3A%2294611%22%2C%22userData%22%3A%7B%7D%7D%7D%7D; nlbi_1610353=63yCF0hfnXF8Ys1j6eNT2gAAAACn3oGeXIMo/x1ExsqAXT4a; _gat_gtag_UA_172784514_2=1; _ga_LZL2CD3SX2=GS1.1.1651031063.6.0.1651031344.0; mbox=PC#9b6c5b75050b44f89bb0e0946900cf45.35_0#1714276145|session#64da29127a144affa4098f5a32068608#1651033205; gpv_Page=safeway%3Adelivery%3Aaisles%3Abread-bakery%3Abaguettes-french-bread; s_nr30=1651031345221-Repeat; _br_uid_2=uid%3D9587123903556%3Av%3D12.0%3Ats%3D1649266626599%3Ahc%3D74; _uetsid=81ce17c0c5b811eca027fdeae43abea5; _uetvid=268bbf80756511ec99edb56d6bb4e245; nlbi_1610353_2147483392=NRkNN84JfgeweXQk6eNT2gAAAAANaou58yeU5Qj+iCW24BdJ; _derived_epik=dj0yJnU9Z1V2TGprU3lab0NOWTd5blRSTU8zdl91ZjJ4WXhNZUombj1MTDYyX1F5blBhQUpEV2xFdUxkd1JBJm09MSZ0PUFBQUFBR0pvdlRNJnJtPTEmcnQ9QUFBQUFHSm92VE0; _clsk=rhr7iw|1651031347822|7|1|d.clarity.ms/collect; s_sq=sfsafewayprod1%3D%2526c.%2526a.%2526activitymap.%2526page%253Dsafeway%25253Adelivery%25253Aaisles%25253Abread-bakery%25253Abaguettes-french-bread%2526link%253DLoad%252520more%2526region%253Dsearch-grid_0%2526pageIDType%253D1%2526.activitymap%2526.a%2526.c%2526pid%253Dsafeway%25253Adelivery%25253Aaisles%25253Abread-bakery%25253Abaguettes-french-bread%2526pidt%253D1%2526oid%253DLoad%252520more%2526oidt%253D3%2526ot%253DSUBMIT; ADRUM_BT1=R%3A94%7Ci%3A3313187%7Ce%3A174%7Cd%3A317; ADRUM_BTa=R%3A94%7Cg%3Ab9f9062a-6376-4406-bdf6-9688984443a6%7Cn%3Asafeway-loyalty_d99a98d0-07cc-4871-98b7-0beac77d0580; SameSite=None; incap_ses_2102_1610353=nYmOZo5eV0ssNexO5s0rHXR9aGIAAAAAkFE3DJEqEIKPL08tzOCD7w==; nlbi_1610353=n9xqf71BMxXk2I0E6eNT2gAAAABLbFKOCzCjz1RYno59ne0g; visid_incap_1610353=EjDbpG8oRQ2swTN7o/8MWKvJUWIAAAAAQUIPAAAAAAAWPH6+Feg0fTaOdEPdTY+I',
   'ocp-apim-subscription-key': 'e914eec9448c4d5eb672debf5011cf8f',
   'referer': 'https://www.safeway.com/shop/aisles/bread-bakery/baguettes-french-bread.3132.html?sort=&page=2',
   'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"',
@@ -181,13 +174,12 @@ def SafewayBakeryBaguettesFrenchBread():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBakeryBagelsAndMuffins():
-    filename ="BagelAndMuffins"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1879730282567&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D74&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def BagelAndMuffin():
+  filename ="BagelAndMuffins"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1879730282567&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_2_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D74&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -201,9 +193,8 @@ def SafewayBakeryBagelsAndMuffins():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-
+  }
+  SafewayRequest(url, headers, payload, filename)
 
 def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName): 
   prods = pd.DataFrame([])
@@ -231,16 +222,5 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName):
 ###############################
 # Main Program
 ###############################
-
-SafewayBakerySandwichBreadWebScrape()
-# SafewayBakeryFlatBreadWebScrape()
-# SafewayBakeryDesertsWebScrape()
-# SafewayBakeryCookieWebScrape()
-# SafewayBakeryCakeWebScrape()
-# SafewayBakeryBunsAndRollsWebScrape()
-# SafewayBakeryBreakfastDonutsWebScrape()
-# SafewayBakeryCateringTrays()
-# SafewayBakeryBaguettesFrenchBread()
-# SafewayBakeryBagelsAndMuffins()
 
 

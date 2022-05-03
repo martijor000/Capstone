@@ -3,11 +3,11 @@ import json
 import pandas as pd
 import time
 
-def AntacidAndDigestiveAids():
-    filename = "AntacidAndDigestiveAids"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1355449796810&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D362&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+payload={}
 
-    payload={}
+def AntacidAndDigestiveAid():
+    filename = "AntacidAndDigestiveAids"
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1355449796810&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D362&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -26,9 +26,7 @@ def AntacidAndDigestiveAids():
     SafewayRequest(url, headers, payload, filename)
 def ColdAndAllergy():
     filename = "ColdAndAllergy"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=6822024540248&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D364&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=6822024540248&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D364&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -45,11 +43,9 @@ def ColdAndAllergy():
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
     SafewayRequest(url, headers, payload, filename)
-def Deodorants():
+def Deodorant():
     filename = "Deodorants"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8124272839600&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D366&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8124272839600&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D366&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -68,9 +64,7 @@ def Deodorants():
     SafewayRequest(url, headers, payload, filename)
 def EyeAndEarCare():
     filename = "EyeAndEarCare"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8153656566167&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D368&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8153656566167&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D368&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -89,9 +83,7 @@ def EyeAndEarCare():
     SafewayRequest(url, headers, payload, filename)
 def FamilyPlanning():
     filename = "FamilyPlanning"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3091928360254&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D370&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3091928360254&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D370&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -110,9 +102,7 @@ def FamilyPlanning():
     SafewayRequest(url, headers, payload, filename)
 def FeminineCare():
     filename = "FeminineCare"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5686498894104&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D372&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5686498894104&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D372&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -131,9 +121,7 @@ def FeminineCare():
     SafewayRequest(url, headers, payload, filename)
 def FirstAidAndMedicalCare():
     filename = "FirstAidAndMedicalCare"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8923424717265&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_19&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D374&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8923424717265&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_19&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D374&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -152,9 +140,7 @@ def FirstAidAndMedicalCare():
     SafewayRequest(url, headers, payload, filename)
 def FootCare():
     filename = "FootCare"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5419899515483&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_10&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D378&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5419899515483&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_10&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D378&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -173,9 +159,7 @@ def FootCare():
     SafewayRequest(url, headers, payload, filename)
 def HairCare():
     filename = "HairCare"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5092723671881&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_11&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D380&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5092723671881&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_11&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D380&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -192,11 +176,9 @@ def HairCare():
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
     SafewayRequest(url, headers, payload, filename)
-def NutritionSolutions():
+def NutritionSolution():
     filename = "NutritionSolutions"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5100921990822&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D382&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5100921990822&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D382&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -215,9 +197,7 @@ def NutritionSolutions():
     SafewayRequest(url, headers, payload, filename)
 def OralHygiene():
     filename = "OralHygiene"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5702391594708&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_13&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D384&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5702391594708&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_13&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D384&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -236,9 +216,7 @@ def OralHygiene():
     SafewayRequest(url, headers, payload, filename)
 def PainRelief():
     filename = "PainRelief"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=9177344526924&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_14&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D386&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=9177344526924&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_14&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D386&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -257,9 +235,7 @@ def PainRelief():
     SafewayRequest(url, headers, payload, filename)
 def PantyhoseAndAdultCare():
     filename = "PantyhoseAndAdultCare"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2392741681984&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_15&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D388&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2392741681984&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_15&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D388&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -276,11 +252,9 @@ def PantyhoseAndAdultCare():
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
     SafewayRequest(url, headers, payload, filename)
-def ShaveNeeds():
+def ShaveNeed():
     filename = "ShaveNeeds"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5562213256915&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_16&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D390&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5562213256915&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_16&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D390&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -297,11 +271,9 @@ def ShaveNeeds():
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
     SafewayRequest(url, headers, payload, filename)
-def SkinCareAndCosmetics():
+def SkinCareAndCosmetic():
     filename = "SkinCareAndCosmetics"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2677178720848&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_17&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D392&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2677178720848&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_17&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D392&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -320,9 +292,7 @@ def SkinCareAndCosmetics():
     SafewayRequest(url, headers, payload, filename)
 def TrialSize():
     filename = "TrialSize"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=7324724044630&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_20&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D394&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=7324724044630&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_20&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D394&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -339,11 +309,9 @@ def TrialSize():
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
     SafewayRequest(url, headers, payload, filename)
-def VitaminsAndSupplements():
+def VitaminsAndSupplement():
     filename = "VitaminsAndSupplements"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2772114831271&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_18&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D396&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-
-    payload={}
+    url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2772114831271&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_17_18&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D396&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -360,7 +328,6 @@ def VitaminsAndSupplements():
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
     SafewayRequest(url, headers, payload, filename)
-
 
 def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName): 
   prods = pd.DataFrame([])
@@ -385,24 +352,3 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName):
   prods = prods.from_records(pd.json_normalize(newData)) 
   prods.to_csv('Safeway-' + str(fileName) + '.csv')
 
-###############################
-# Main Program
-###############################
-
-# AntacidAndDigestiveAids()
-# ColdAndAllergy()
-# Deodorants()
-# EyeAndEarCare()
-# FamilyPlanning()
-# FeminineCare()
-# FirstAidAndMedicalCare()
-# FootCare()
-# HairCare()
-# NutritionSolutions()
-# OralHygiene()
-# PainRelief()
-# PantyhoseAndAdultCare()
-# ShaveNeeds()
-# SkinCareAndCosmetics()
-# TrialSize()
-# VitaminsAndSupplements()

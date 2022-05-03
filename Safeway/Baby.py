@@ -1,12 +1,12 @@
-from fileinput import filename
 import requests
 import json
 import pandas as pd
 import time
 
-def SafewayBabyBathAndSkinCareWebScrape(): 
+payload={}
+
+def BathAndSkinCare(): 
   filename = "BathsAndSkinCares"
-  payload={}
   headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
@@ -23,11 +23,10 @@ def SafewayBabyBathAndSkinCareWebScrape():
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
 }
-  url ="https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1187782201851&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_1_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D27&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1187782201851&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_1_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D27&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
   SafewayRequest(url, headers, payload, filename)
-def SafewayBabyAccessoriesWebScrape(): 
+def Accessory(): 
   filename = "Accessories"
-  payload={}
   headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
@@ -43,11 +42,10 @@ def SafewayBabyAccessoriesWebScrape():
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
 }
-  url ="https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3708292480630&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_1_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D30&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3708292480630&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_1_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D30&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
   SafewayRequest(url, headers, payload, filename)
-def SafewayBabyDiapersWebScrape(): 
+def Diaper(): 
   filename = "Diapers"
-  payload={}
   headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
@@ -63,11 +61,10 @@ def SafewayBabyDiapersWebScrape():
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
 }
-  url ="https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8632527702174&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_1_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D33&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8632527702174&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_1_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D33&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
   SafewayRequest(url, headers, payload, filename)
-def SafewayBabyFormulaWebScrape(): 
+def Formula(): 
   filename = "Formulas"
-  payload={}
   headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
@@ -83,8 +80,9 @@ def SafewayBabyFormulaWebScrape():
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
 }
-  url ="https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2413229198439&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_1_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D36&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  url =f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2413229198439&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=30&search-type=category&category-id=1_1_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D36&q=&sort=&userid=&featuredsessionid=&screenwidth=1739&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
   SafewayRequest(url, headers, payload, filename)
+
 def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName): 
   prods = pd.DataFrame([])
   for rows in range(30, 1000, 30):
@@ -107,13 +105,5 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName):
 
   prods = prods.from_records(pd.json_normalize(newData)) 
   prods.to_csv('Safeway-Baby' + str(fileName) + '.csv')
-###############################
-# Main Program
-###############################
-SafewayBabyBathAndSkinCareWebScrape()
-SafewayBabyAccessoriesWebScrape()
-SafewayBabyDiapersWebScrape()
-SafewayBabyFormulaWebScrape()
-
 
 

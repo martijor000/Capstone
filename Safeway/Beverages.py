@@ -5,31 +5,31 @@ import json
 import pandas as pd
 import time
 
-def SafewayBeverageCocoaHotChocolate():
-    filename = "CocoaHotChocolate"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8931011964714&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D77&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
-    'authority': 'www.safeway.com',
-    'accept': 'application/json, text/plain, */*',
-    'accept-language': 'en-US,en;q=0.9',
-    'cookie': 'safeway_ga=GA1.2.1007655441.1642183783; visid_incap_1610353=C6jZu81NRRqgbzwUkiBufCwoS2IAAAAAQUIPAAAAAADon/9DcCZd8vODizgnIvcy; aam_uuid=48286462568079877321785283656852940828; _gcl_au=1.1.1370304885.1649266627; _fbp=fb.1.1649266627349.646321825; _pin_unauth=dWlkPVpUSXlPVFl3Wm1RdE9EWXpOUzAwT1RZMExXRmpaREF0Wm1NMk1XSmlORFU0T0RWbA; _ga=GA1.1.1007655441.1642183783; _gac_UA-172784514-2=1.1649526980.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _gcl_aw=GCL.1649526981.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _gcl_dc=GCL.1649526981.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _fwnguid=f3845b1e-554e-43d7-b304-af6a09333fb6; __qca=P0-192704564-1649527253282; AMCVS_A7BF3BC75245ADF20A490D4D%40AdobeOrg=1; ECommBanner=safeway; ECommSignInCount=0; at_check=true; SAFEWAY_MODAL_LINK=; s_cc=true; safeway_ga_gid=GA1.2.1424596250.1651015677; _clck=1f44y5o|1|f0z|0; ADRUM=s=1651020791821&r=https%3A%2F%2Fwww.safeway.com%2Fshop%2Faisles.3132.html; AMCV_A7BF3BC75245ADF20A490D4D%40AdobeOrg=-1124106680%7CMCIDTS%7C19110%7CMCMID%7C53070417963508696801324674344628904632%7CMCAAMLH-1651635849%7C9%7CMCAAMB-1651635849%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1651038249s%7CNONE%7CvVersion%7C5.2.0; SWY_SYND_USER_INFO=%7B%22storeAddress%22%3A%22%22%2C%22storeZip%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%2C%22preference%22%3A%22J4U%22%7D; abs_gsession=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%7D%7D; abs_previouslogin=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%7D%7D; s_vncm=1651388399271%26vn%3D5; s_ivc=true; SWY_SHARED_SESSION_INFO=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%2C%22preference%22%3A%22J4U%22%2C%22Selection%22%3A%22user%22%2C%22userData%22%3A%7B%7D%7D%2C%22J4U%22%3A%7B%22storeId%22%3A%223132%22%2C%22zipcode%22%3A%2294611%22%2C%22userData%22%3A%7B%7D%7D%2C%22SHOP%22%3A%7B%22storeId%22%3A%223132%22%2C%22zipcode%22%3A%2294611%22%2C%22userData%22%3A%7B%7D%7D%7D%7D; reese84=3:FwGDouFt5+VJgXfzmk70ug==:Qi47ckNcWMFXYbxw+pzgJlWjx/O/AQtic+OiP/mj16EAUgIrurf+s6ukP/sOLDiniDbqW8lvb0CaYPKTZC3SWYtY4DDxT2EvUjE75HNmE/J4pupDAj+3XNSO5p29q5ywbvQnfgPColN8n580GAw52jxTl6/952NfZ6gsMoghlH2FlyAWs/qVctwO+JYfrvLFKSSVQ0jjk+xdQ7hDAiDlkjs9yngmRF9PhucqBE/NO6Ksm3Z9WG5YsnEO0ZilWO/00hCVlvcAep8i/fCyfpybfhVXh+rx50iPTlSqmIdURMveA0aAZc1IOjbTU2QUf+5mJ4eaAlc9MwZ0z4awY++2ZLw/PYnnPybiAFwmdjabOkXArsKK+lqypTW8DXANn3nURZEDzcGOWEwYeXaHJ7Z3+1CIOhByYwPwVC14u1pqcRWlj+iK3sNwrDNqYzXnG+Su383RiKo4MTFubf4ZkNSNAXpY1jXbjSovq0ZxhSi/aaI=:zkoRedGJxEJG9ISB+hvfhUY5wM/Jz5yqtTUEJeHJEU8=; incap_ses_2102_1610353=5Z/VY22DxnMjaFVP5s0rHenCaGIAAAAATa8eSoccMhuXK+3PzdrYHQ==; nlbi_1610353=cP4Ed0hXRTLpSqvY6eNT2gAAAABAAYDRpWIAoCiWTOQH/O1J; _ga_LZL2CD3SX2=GS1.1.1651033348.7.0.1651033348.0; mbox=PC#9b6c5b75050b44f89bb0e0946900cf45.35_0#1714278150|session#64da29127a144affa4098f5a32068608#1651035210; s_nr30=1651033349924-Repeat; gpv_Page=safeway%3Adelivery%3Aaisles%3Abeverages%3Acocoa-hot-chocolate; _br_uid_2=uid%3D9587123903556%3Av%3D12.0%3Ats%3D1649266626599%3Ahc%3D79; _uetsid=81ce17c0c5b811eca027fdeae43abea5; _uetvid=268bbf80756511ec99edb56d6bb4e245; nlbi_1610353_2147483392=ndusMHfYzHDDJgsY6eNT2gAAAADs6N02jg3phRT9IgWY6xak; _derived_epik=dj0yJnU9WlFNYzMxS09RVFFVZTZZX20xMXRVREpSbFFtcDRpSXQmbj1wdjdRb3NmbEphQzhPQVQ2RGtnYzNRJm09MSZ0PUFBQUFBR0pveFFnJnJtPTEmcnQ9QUFBQUFHSm94UWc; _clsk=rhr7iw|1651033352828|16|1|d.clarity.ms/collect; s_sq=sfsafewayprod1%3D%2526c.%2526a.%2526activitymap.%2526page%253Dsafeway%25253Adelivery%25253Aaisles%25253Abeverages%25253Acocoa-hot-chocolate%2526link%253DLoad%252520more%2526region%253Dsearch-grid_0%2526pageIDType%253D1%2526.activitymap%2526.a%2526.c%2526pid%253Dsafeway%25253Adelivery%25253Aaisles%25253Abeverages%25253Acocoa-hot-chocolate%2526pidt%253D1%2526oid%253DLoad%252520more%2526oidt%253D3%2526ot%253DSUBMIT; ADRUM_BT1=R%3A88%7Ci%3A3313187%7Cd%3A147; ADRUM_BTa=R%3A88%7Cg%3Aa329ac4a-b6a7-4e0a-af99-5e07f858f1a3%7Cn%3Asafeway-loyalty_d99a98d0-07cc-4871-98b7-0beac77d0580; SameSite=None; incap_ses_2102_1610353=nYmOZo5eV0ssNexO5s0rHXR9aGIAAAAAkFE3DJEqEIKPL08tzOCD7w==; nlbi_1610353=n9xqf71BMxXk2I0E6eNT2gAAAABLbFKOCzCjz1RYno59ne0g; visid_incap_1610353=EjDbpG8oRQ2swTN7o/8MWKvJUWIAAAAAQUIPAAAAAAAWPH6+Feg0fTaOdEPdTY+I',
-    'ocp-apim-subscription-key': 'e914eec9448c4d5eb672debf5011cf8f',
-    'referer': 'https://www.safeway.com/shop/aisles/beverages/cocoa-hot-chocolate.3132.html?sort=&page=2',
-    'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBeverageCoconutWater():
-    filename = "CoconutWater"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2452172237533&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D79&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+payload={}
+
+def CocoaHotChocolate():
+  filename = "CocoaHotChocolate"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8931011964714&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D77&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
+  'authority': 'www.safeway.com',
+  'accept': 'application/json, text/plain, */*',
+  'accept-language': 'en-US,en;q=0.9',
+  'cookie': 'safeway_ga=GA1.2.1007655441.1642183783; visid_incap_1610353=C6jZu81NRRqgbzwUkiBufCwoS2IAAAAAQUIPAAAAAADon/9DcCZd8vODizgnIvcy; aam_uuid=48286462568079877321785283656852940828; _gcl_au=1.1.1370304885.1649266627; _fbp=fb.1.1649266627349.646321825; _pin_unauth=dWlkPVpUSXlPVFl3Wm1RdE9EWXpOUzAwT1RZMExXRmpaREF0Wm1NMk1XSmlORFU0T0RWbA; _ga=GA1.1.1007655441.1642183783; _gac_UA-172784514-2=1.1649526980.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _gcl_aw=GCL.1649526981.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _gcl_dc=GCL.1649526981.CjwKCAjw3cSSBhBGEiwAVII0Z8vz76iVXE1F7hzQvxe1hhA4SiCKFHOENbuatLZSgDUEmaSDAqxrhBoC3AgQAvD_BwE; _fwnguid=f3845b1e-554e-43d7-b304-af6a09333fb6; __qca=P0-192704564-1649527253282; AMCVS_A7BF3BC75245ADF20A490D4D%40AdobeOrg=1; ECommBanner=safeway; ECommSignInCount=0; at_check=true; SAFEWAY_MODAL_LINK=; s_cc=true; safeway_ga_gid=GA1.2.1424596250.1651015677; _clck=1f44y5o|1|f0z|0; ADRUM=s=1651020791821&r=https%3A%2F%2Fwww.safeway.com%2Fshop%2Faisles.3132.html; AMCV_A7BF3BC75245ADF20A490D4D%40AdobeOrg=-1124106680%7CMCIDTS%7C19110%7CMCMID%7C53070417963508696801324674344628904632%7CMCAAMLH-1651635849%7C9%7CMCAAMB-1651635849%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1651038249s%7CNONE%7CvVersion%7C5.2.0; SWY_SYND_USER_INFO=%7B%22storeAddress%22%3A%22%22%2C%22storeZip%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%2C%22preference%22%3A%22J4U%22%7D; abs_gsession=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%7D%7D; abs_previouslogin=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22Selection%22%3A%22user%22%2C%22preference%22%3A%22J4U%22%2C%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%7D%2C%22J4U%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%2C%22SHOP%22%3A%7B%22zipcode%22%3A%2294611%22%2C%22storeId%22%3A%223132%22%7D%7D%7D; s_vncm=1651388399271%26vn%3D5; s_ivc=true; SWY_SHARED_SESSION_INFO=%7B%22info%22%3A%7B%22COMMON%22%3A%7B%22userType%22%3A%22G%22%2C%22zipcode%22%3A%2294611%22%2C%22banner%22%3A%22safeway%22%2C%22preference%22%3A%22J4U%22%2C%22Selection%22%3A%22user%22%2C%22userData%22%3A%7B%7D%7D%2C%22J4U%22%3A%7B%22storeId%22%3A%223132%22%2C%22zipcode%22%3A%2294611%22%2C%22userData%22%3A%7B%7D%7D%2C%22SHOP%22%3A%7B%22storeId%22%3A%223132%22%2C%22zipcode%22%3A%2294611%22%2C%22userData%22%3A%7B%7D%7D%7D%7D; reese84=3:FwGDouFt5+VJgXfzmk70ug==:Qi47ckNcWMFXYbxw+pzgJlWjx/O/AQtic+OiP/mj16EAUgIrurf+s6ukP/sOLDiniDbqW8lvb0CaYPKTZC3SWYtY4DDxT2EvUjE75HNmE/J4pupDAj+3XNSO5p29q5ywbvQnfgPColN8n580GAw52jxTl6/952NfZ6gsMoghlH2FlyAWs/qVctwO+JYfrvLFKSSVQ0jjk+xdQ7hDAiDlkjs9yngmRF9PhucqBE/NO6Ksm3Z9WG5YsnEO0ZilWO/00hCVlvcAep8i/fCyfpybfhVXh+rx50iPTlSqmIdURMveA0aAZc1IOjbTU2QUf+5mJ4eaAlc9MwZ0z4awY++2ZLw/PYnnPybiAFwmdjabOkXArsKK+lqypTW8DXANn3nURZEDzcGOWEwYeXaHJ7Z3+1CIOhByYwPwVC14u1pqcRWlj+iK3sNwrDNqYzXnG+Su383RiKo4MTFubf4ZkNSNAXpY1jXbjSovq0ZxhSi/aaI=:zkoRedGJxEJG9ISB+hvfhUY5wM/Jz5yqtTUEJeHJEU8=; incap_ses_2102_1610353=5Z/VY22DxnMjaFVP5s0rHenCaGIAAAAATa8eSoccMhuXK+3PzdrYHQ==; nlbi_1610353=cP4Ed0hXRTLpSqvY6eNT2gAAAABAAYDRpWIAoCiWTOQH/O1J; _ga_LZL2CD3SX2=GS1.1.1651033348.7.0.1651033348.0; mbox=PC#9b6c5b75050b44f89bb0e0946900cf45.35_0#1714278150|session#64da29127a144affa4098f5a32068608#1651035210; s_nr30=1651033349924-Repeat; gpv_Page=safeway%3Adelivery%3Aaisles%3Abeverages%3Acocoa-hot-chocolate; _br_uid_2=uid%3D9587123903556%3Av%3D12.0%3Ats%3D1649266626599%3Ahc%3D79; _uetsid=81ce17c0c5b811eca027fdeae43abea5; _uetvid=268bbf80756511ec99edb56d6bb4e245; nlbi_1610353_2147483392=ndusMHfYzHDDJgsY6eNT2gAAAADs6N02jg3phRT9IgWY6xak; _derived_epik=dj0yJnU9WlFNYzMxS09RVFFVZTZZX20xMXRVREpSbFFtcDRpSXQmbj1wdjdRb3NmbEphQzhPQVQ2RGtnYzNRJm09MSZ0PUFBQUFBR0pveFFnJnJtPTEmcnQ9QUFBQUFHSm94UWc; _clsk=rhr7iw|1651033352828|16|1|d.clarity.ms/collect; s_sq=sfsafewayprod1%3D%2526c.%2526a.%2526activitymap.%2526page%253Dsafeway%25253Adelivery%25253Aaisles%25253Abeverages%25253Acocoa-hot-chocolate%2526link%253DLoad%252520more%2526region%253Dsearch-grid_0%2526pageIDType%253D1%2526.activitymap%2526.a%2526.c%2526pid%253Dsafeway%25253Adelivery%25253Aaisles%25253Abeverages%25253Acocoa-hot-chocolate%2526pidt%253D1%2526oid%253DLoad%252520more%2526oidt%253D3%2526ot%253DSUBMIT; ADRUM_BT1=R%3A88%7Ci%3A3313187%7Cd%3A147; ADRUM_BTa=R%3A88%7Cg%3Aa329ac4a-b6a7-4e0a-af99-5e07f858f1a3%7Cn%3Asafeway-loyalty_d99a98d0-07cc-4871-98b7-0beac77d0580; SameSite=None; incap_ses_2102_1610353=nYmOZo5eV0ssNexO5s0rHXR9aGIAAAAAkFE3DJEqEIKPL08tzOCD7w==; nlbi_1610353=n9xqf71BMxXk2I0E6eNT2gAAAABLbFKOCzCjz1RYno59ne0g; visid_incap_1610353=EjDbpG8oRQ2swTN7o/8MWKvJUWIAAAAAQUIPAAAAAAAWPH6+Feg0fTaOdEPdTY+I',
+  'ocp-apim-subscription-key': 'e914eec9448c4d5eb672debf5011cf8f',
+  'referer': 'https://www.safeway.com/shop/aisles/beverages/cocoa-hot-chocolate.3132.html?sort=&page=2',
+  'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="100", "Google Chrome";v="100"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"Windows"',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+  }
+  SafewayRequest(url, headers, payload, filename)
+def CoconutWater():
+  filename = "CoconutWater"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2452172237533&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D79&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -43,13 +43,12 @@ def SafewayBeverageCoconutWater():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBeverageCoffee():
-    filename = "Coffee"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2464637854055&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_5_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D81&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Coffee():
+  filename = "Coffee"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2464637854055&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_5_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D81&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -63,13 +62,12 @@ def SafewayBeverageCoffee():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBeverageEnergyDrinks():
-    filename = "EnergyDrinks"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2772174700643&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D86&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def EnergyDrink():
+  filename = "EnergyDrinks"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2772174700643&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D86&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -83,13 +81,12 @@ def SafewayBeverageEnergyDrinks():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBeverageJuiceAndSmoothies():
-    filename = "JuiceAndSmoothies"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=9353749027433&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_5&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D89&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def JuiceAndSmoothies():
+  filename = "JuiceAndSmoothies"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=9353749027433&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_5&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D89&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -103,13 +100,12 @@ def SafewayBeverageJuiceAndSmoothies():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBeverageKombucha():
-    filename = "Kombucha"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1550320419715&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D91&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Kombucha():
+  filename = "Kombucha"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1550320419715&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D91&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -123,13 +119,12 @@ def SafewayBeverageKombucha():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBeverageSoftDrinks():
-    filename = "SoftDrink"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5111633920202&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D93&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def SoftDrink():
+  filename = "SoftDrink"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5111633920202&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D93&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -143,13 +138,12 @@ def SafewayBeverageSoftDrinks():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBeverageSportsDrinks():
-    filename = "SportsDrinks"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4776553217544&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D95&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def SportsDrink():
+  filename = "SportsDrinks"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4776553217544&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D95&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -163,13 +157,12 @@ def SafewayBeverageSportsDrinks():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBeverageTeas():
-    filename = "Teas"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=9163552798414&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_9&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D97&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Tea():
+  filename = "Teas"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=9163552798414&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_9&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D97&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -183,13 +176,12 @@ def SafewayBeverageTeas():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
-def SafewayBeverageWaters():
-    filename = "Waters"
-    url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3129685559522&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_10&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D99&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
-    payload={}
-    headers = {
+  }
+  SafewayRequest(url, headers, payload, filename)
+def Water():
+  filename = "Waters"
+  url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3129685559522&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_5_10&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D99&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
+  headers = {
   'authority': 'www.safeway.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'en-US,en;q=0.9',
@@ -203,8 +195,9 @@ def SafewayBeverageWaters():
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-origin',
   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
-}
-    SafewayRequest(url, headers, payload, filename)
+  }
+  SafewayRequest(url, headers, payload, filename)
+
 def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName): 
   prods = pd.DataFrame([])
   for rows in range(30, 1000, 30):
@@ -228,16 +221,4 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName):
   prods = prods.from_records(pd.json_normalize(newData)) 
   prods.to_csv('Safeway-Beverage' + str(fileName) + '.csv')
 
-###############################
-# Main Program
-###############################
 
-#SafewayBeverageCocoaHotChocolate()
-# SafewayBeverageCoconutWater()
-# SafewayBeverageCoffee()
-# SafewayBeverageEnergyDrinks()
-# SafewayBeverageJuiceAndSmoothies()
-# SafewayBeverageKombucha()
-# SafewayBeverageSoftDrinks()
-# SafewayBeverageTeas()
-# SafewayBeverageWaters()
