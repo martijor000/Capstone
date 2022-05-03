@@ -130,3 +130,13 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName):
 
   prods = prods.from_records(pd.json_normalize(newData)) 
   prods.to_csv('Safeway-Deli' + str(fileName) + '.csv')
+
+
+####################
+# Main Program
+####################
+
+AsianFoods()
+HispanicFoods()
+KosherFoods()
+FrozenIceCreamAndNovelties()
