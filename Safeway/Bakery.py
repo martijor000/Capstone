@@ -2,6 +2,7 @@ import requests
 import json
 import pandas as pd
 import time
+from sqlalchemy import create_engine
 
 payload={}
 
@@ -196,8 +197,7 @@ def BagelAndMuffin():
   }
   SafewayRequest(url, headers, payload, filename)
 
-def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName): 
-  prods = pd.DataFrame([])
+def SafewayRequest(updateURL, insertHeaders, insertPayload, tableName): 
   for rows in range(30, 1000, 30):
     test = updateURL.replace("rows=30", "rows=" + str(rows))
     newURL = f"{test}"
@@ -215,12 +215,23 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, fileName):
   for x in newData:
     if x not in filteredData: 
       filteredData.append(x)
-
+  prods = pd.DataFrame([])
   prods = prods.from_records(pd.json_normalize(newData)) 
-  prods.to_csv('Safeway-Bakery' + str(fileName) + '.csv')
+  prods = prods.drop(columns=['sellByWeight','aisleName', 'prop65WarningIconRequired', 'departmentName', 'pid', 'aisleId', 'upc', 'restrictedValue', 'displayType', 'averageWeight', 'salesRank', 'id', 'featured', 'inventoryAvailable', 'pastPurchased', 'promoDescription', 'promoType', 'isArProduct', 'displayUnitQuantityText', 'promoEndDate', 'isMtoProduct', 'displayEstimateText', 'channelEligibility.delivery', 'channelEligibility.inStore', 'channelEligibility.pickUp', 'channelInventory.delivery', 'channelInventory.pickup', 'channelInventory.instore', 'preparationTime', 'unitQuantity', 'basePrice'], axis=1)
+  # prods.to_csv('Safeway-Baby' + str(fileName) + '.csv')
+  
+  DB = {'servername': '(localdb)\MSSQLLocalDB',
+      'database': 'Safeway',
+      'driver': 'driver=SQL Server Native Client 11.0'}
+
+  engine = create_engine('mssql+pyodbc://' + DB['servername'] + '/' + DB['database'] + "?" + DB['driver'])
+
+# add table to sql server
+  prods.to_sql("Bakery" + tableName, index=False, con=engine)
+
+  # write the DataFrame to a table in the sql database
 
 ###############################
 # Main Program
 ###############################
-
 
