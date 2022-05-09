@@ -122,7 +122,6 @@ def IceCreamAndNovelties():
     SafewayRequest(url, headers, payload, filename)
     url = "https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2220313860318&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=20&search-type=category&category-id=1_12_11&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D244&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
 
-    payload={}
     headers = {
     'authority': 'www.safeway.com',
     'accept': 'application/json, text/plain, */*',
@@ -160,14 +159,16 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, tableName):
       filteredData.append(x)
   prods = pd.DataFrame([])
   prods = prods.from_records(pd.json_normalize(newData)) 
-  prods = prods.drop(columns=['sellByWeight','aisleName', 'prop65WarningIconRequired', 'departmentName', 'pid', 'aisleId', 'upc', 'restrictedValue', 'displayType', 'averageWeight', 'salesRank', 'id', 'featured', 'inventoryAvailable', 'pastPurchased', 'promoDescription', 'promoType', 'isArProduct', 'displayUnitQuantityText', 'promoEndDate', 'isMtoProduct', 'displayEstimateText', 'channelEligibility.delivery', 'channelEligibility.inStore', 'channelEligibility.pickUp', 'channelInventory.delivery', 'channelInventory.pickup', 'channelInventory.instore', 'preparationTime', 'unitQuantity', 'basePrice'], axis=1)
+  prods = prods.drop(columns=['sellByWeight','aisleName', 'prop65WarningIconRequired', 'departmentName', 'pid', 'aisleId', 'upc', 'restrictedValue', 'displayType', 'averageWeight', 'salesRank', 'id', 'featured', 'inventoryAvailable', 'pastPurchased', 'isArProduct', 'displayUnitQuantityText', 'promoEndDate', 'isMtoProduct', 'displayEstimateText', 'channelEligibility.delivery', 'channelEligibility.inStore', 'channelEligibility.pickUp', 'channelInventory.delivery', 'channelInventory.pickup', 'channelInventory.instore', 'preparationTime', 'unitQuantity', 'basePrice'], axis=1)
   # prods.to_csv('Safeway-Baby' + str(fileName) + '.csv')
-  
+
   DB = {'servername': '(localdb)\MSSQLLocalDB',
       'database': 'Safeway',
       'driver': 'driver=SQL Server Native Client 11.0'}
 
+
   engine = create_engine('mssql+pyodbc://' + DB['servername'] + '/' + DB['database'] + "?" + DB['driver'])
+  engine.execute('DROP TABLE IF EXISTS ' + "FrozenFoods" + tableName)
 
 # add table to sql server
   prods.to_sql("FrozenFoods" + tableName, index=False, con=engine)
