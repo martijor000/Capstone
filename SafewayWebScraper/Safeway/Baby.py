@@ -2,7 +2,7 @@ import requests
 import json
 import pandas as pd
 import time
-from sqlalchemy import create_engine
+from flask_sqlalchemy import create_engine
 
 payload={}
 
@@ -107,15 +107,20 @@ def SafewayRequest(updateURL, insertHeaders, insertPayload, tableName):
   prods = prods.drop(columns=['sellByWeight','aisleName', 'prop65WarningIconRequired', 'departmentName', 'pid', 'aisleId', 'upc', 'restrictedValue', 'displayType', 'averageWeight', 'salesRank', 'id', 'featured', 'inventoryAvailable', 'pastPurchased', 'isArProduct', 'displayUnitQuantityText', 'promoEndDate', 'isMtoProduct', 'displayEstimateText', 'channelEligibility.delivery', 'channelEligibility.inStore', 'channelEligibility.pickUp', 'channelInventory.delivery', 'channelInventory.pickup', 'channelInventory.instore', 'preparationTime', 'unitQuantity', 'basePrice'], axis=1)
   # prods.to_csv('Safeway-Baby' + str(fileName) + '.csv')
 
+
+
   DB = {'servername': '(localdb)\MSSQLLocalDB',
-      'database': 'Safeway',
       'driver': 'driver=SQL Server Native Client 11.0'}
 
 
-  engine = create_engine('mssql+pyodbc://' + DB['servername'] + '/' + DB['database'] + "?" + DB['driver'])
+  engine = create_engine('mssql+pyodbc://' + DB['servername'] + '/'+ "?" + DB['driver'])
+  engine.execute('DROP DATABASE IF EXISTS Safeway')
+  engine.execute('CREATE DATABASE Safeway')
   engine.execute('DROP TABLE IF EXISTS ' + "Baby" + tableName)
 
 # add table to sql server
   prods.to_sql("Baby" + tableName, index=False, con=engine)
 
   # write the DataFrame to a table in the sql database
+
+BathAndSkinCare()
