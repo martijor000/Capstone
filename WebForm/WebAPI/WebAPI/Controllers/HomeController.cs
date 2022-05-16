@@ -46,7 +46,7 @@ namespace WebAPI.Controllers
                 }
                 comparePrices(comparePrice);
             }
-            return View("Index", model);
+            return RedirectToAction("Index", "CalculateIndex", model);
         }
         private void comparePrices(List<double?> compare)
         {
@@ -63,6 +63,10 @@ namespace WebAPI.Controllers
                     }
                 }
             }
+        }
+        private void returnInputs(List<Items> saveList)
+        {
+
         }
     }
 }

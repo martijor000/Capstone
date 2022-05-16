@@ -1,0 +1,12 @@
+﻿@model WebAPI.Models.Items
+
+@using (Html.BeginForm("CalculateList", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(model => model.GroceryList)
+    @Html.TextBoxFor(model => model.GroceryList)
+    @Html.TextBoxFor(model => model.GroceryList)
+    @Html.TextBoxFor(model => model.GroceryList)
+    @Html.TextBoxFor(model => model.GroceryList)
+
+    <button type="submit">Subscribe</button>
+}
