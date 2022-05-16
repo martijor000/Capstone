@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\App_Start",
+    "\\Controllers",
+    "\\Views",
+    "\\Views\\CalculateIndex",
+    "\\Views\\Home"
+  ],
+  "SelectedNode": "\\Views\\CalculateIndex\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}
