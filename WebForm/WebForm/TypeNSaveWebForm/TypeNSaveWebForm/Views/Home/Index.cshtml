@@ -1,0 +1,18 @@
+﻿@model TypeNSaveWebForm.Models.Universal.Items
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@using (Html.BeginForm("CalculateList", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(model => model.GroceryList)<br/>
+    @Html.TextBoxFor(model => model.GroceryList)<br />
+    @Html.TextBoxFor(model => model.GroceryList)<br />
+    @Html.TextBoxFor(model => model.GroceryList)<br />
+    @Html.TextBoxFor(model => model.GroceryList)<br />
+
+    <button type="submit">Calculate</button>
+}

@@ -1,0 +1,13 @@
+﻿@model TypeNSaveWebForm.Models.Universal.Items
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@for (int i = 0; i < Model.GroceryList.Count; i++)
+{
+    @Html.TextBoxFor(model => model.GroceryList[i])
+}
+
+
+
