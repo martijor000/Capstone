@@ -4,10 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-@for (int i = 0; i < Model.GroceryList.Count; i++)
+@for (int i = 0; i < Model.ItemName.Count; i++)
 {
-    @Html.TextBoxFor(model => model.GroceryList[i])
+    @Html.TextBoxFor(model => model.ItemName[i])
+    <br/>
 }
+
+@*@foreach(string item in Model.ItemName)
+{
+    @Html.TextBox("item", item.)
+}*@
 
 
 

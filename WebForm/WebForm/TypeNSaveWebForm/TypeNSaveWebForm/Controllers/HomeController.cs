@@ -14,24 +14,26 @@ namespace TypeNSaveWebForm.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-            Items model = new Items();
-            return View(model);
+            return View();
         }
+
+        [HttpPost]
         public ActionResult CalculateList(Items model)
         {
+            Console.WriteLine(model.ItemName);
             if (ModelState.IsValid)
             {
                 AccessoryController accessoryController = new AccessoryController();
                 List<BabyAccessory> allItems = new List<BabyAccessory>(accessoryController.Get().ToList());
                 List<double?> comparePrice = new List<double?>();
 
-                for (int j = 0; j < model.GroceryList.Count; j++)
+                for (int j = 0; j < model.ItemName.Count; j++)
                 {
                     for (int i = 0; i < allItems.Count; i++)
                     {
-                        if (allItems[i].name.ToLower().Contains(model.GroceryList[j].ToString().ToLower()))
+                        if (allItems[i].name.ToLower().Contains(model.ItemName[j].ToString().ToLower()))
                         {
-                            if (model.GroceryList[j] != "")
+                            if (!string.IsNullOrEmpty(model.ItemName[j]))
                             {
                                 comparePrice.Add(allItems[i].price);
                             }
@@ -48,8 +50,9 @@ namespace TypeNSaveWebForm.Controllers
 
                 }
                 comparePrices(comparePrice);
+                TempData["GrabItemModel"] = model;
             }
-            return RedirectToAction("Index", "CalculateIndex");
+            return RedirectToAction("Index" , "CalculateIndex");
         }
         private void comparePrices(List<double?> compare)
         {

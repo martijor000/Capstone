@@ -6,13 +6,20 @@
 
 
 
+
 @using (Html.BeginForm("CalculateList", "Home", FormMethod.Post))
 {
-    @Html.TextBoxFor(model => model.GroceryList)<br/>
-    @Html.TextBoxFor(model => model.GroceryList)<br />
-    @Html.TextBoxFor(model => model.GroceryList)<br />
-    @Html.TextBoxFor(model => model.GroceryList)<br />
-    @Html.TextBoxFor(model => model.GroceryList)<br />
+    <input type="text" name="ItemName" />
+    <br />
+    <input type="text" name="ItemName" />
+    <br />
+    <input type="text" name="ItemName" />
+    <br />
+    <input type="text" name="ItemName" />
+    <br />
+    <input type="text" name="ItemName" />
+    <br />
 
     <button type="submit">Calculate</button>
 }
+

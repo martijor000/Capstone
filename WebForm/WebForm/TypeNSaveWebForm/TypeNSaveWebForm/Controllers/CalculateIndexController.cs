@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TypeNSaveWebForm.Models.Universal;
 
 namespace TypeNSaveWebForm.Controllers
 {
@@ -11,7 +12,8 @@ namespace TypeNSaveWebForm.Controllers
         // GET: CalculateIndex
         public ActionResult Index()
         {
-            return View();
+            Items model = TempData["GrabItemModel"] as Items;
+            return View(model);
         }
     }
 }

@@ -1,10 +1,7 @@
-import requests
-import json
-import pandas as pd
-import time
-from sqlalchemy import create_engine
+from SafewayReq import SafewayRequest
 
 payload={}
+categoryName = "Snacks"
 
 def Candy():
     filename = "Candy"
@@ -24,7 +21,7 @@ def Candy():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def CandySeasonal():
     filename = "SeasonalCandy"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=6940519521932&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_15&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D186&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -43,7 +40,7 @@ def CandySeasonal():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def Chip():
     filename = "Chips"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3469956208764&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_1&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D188&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -62,7 +59,7 @@ def Chip():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def Chocolate():
     filename = "Chocolates"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4287705584347&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_16&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D190&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -81,7 +78,7 @@ def Chocolate():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def Cookie():
     filename = "Cookies"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1659341106583&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_2&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D192&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -100,7 +97,7 @@ def Cookie():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def Cracker():
     filename = "Crackers"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3669110413890&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_3&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D194&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -119,7 +116,7 @@ def Cracker():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def FruitCupsAndApplesauce():
     filename = "FruitCupsAndApplesauces"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5260253744411&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_4&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D196&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -138,7 +135,7 @@ def FruitCupsAndApplesauce():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def FruitSnack():
     filename = "FruitSnacks"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=5648465753161&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_5&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D198&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -157,7 +154,7 @@ def FruitSnack():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def GelatinAndPudding():
     filename = "GelatinAndPudding"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4499864490786&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_6&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D200&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -176,7 +173,7 @@ def GelatinAndPudding():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def Gum():
     filename = "Gum"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=2765481795215&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_17&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D202&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -195,7 +192,7 @@ def Gum():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def JerkyAndMeatSnack():
     filename = "JerkyAndMeatSnacks"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=8864535021084&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_7&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D204&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -214,7 +211,7 @@ def JerkyAndMeatSnack():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def Mint():
     filename = "Mints"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3512685871725&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_18&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D206&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -233,7 +230,7 @@ def Mint():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def NutsSeedsAndTrailMix():
     filename = "NutsSeedsAndTrailMixes"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=6535121395783&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_8&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D208&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -252,7 +249,7 @@ def NutsSeedsAndTrailMix():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def PopcornAndGrainCake():
     filename = "PopcornAndGrainCakes"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=4609202959049&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_9&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D212&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -271,7 +268,7 @@ def PopcornAndGrainCake():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def Pretzel():
     filename = "Pretzels"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=3843548360959&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_10&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D214&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -290,7 +287,7 @@ def Pretzel():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 def SalsaAndDip():
     filename = "SalsaAndDips"
     url = f"https://www.safeway.com/abs/pub/xapi/v1/aisles/products?request-id=1015792566149&url=https://www.safeway.com&pageurl=https://www.safeway.com&pagename=aisles&rows=30&start=0&search-type=category&category-id=1_24_11&storeid=3132&featured=true&search-uid=uid%253D9587123903556%253Av%253D12.0%253Ats%253D1649266626599%253Ahc%253D216&q=&sort=&userid=&featuredsessionid=&screenwidth=859&dvid=web-4.1aisles&pp=none&channel=instore&banner=safeway"
@@ -309,40 +306,5 @@ def SalsaAndDip():
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-    SafewayRequest(url, headers, payload, filename)
+    SafewayRequest(url, headers, payload, filename, categoryName)
 
-def SafewayRequest(updateURL, insertHeaders, insertPayload, tableName): 
-  for rows in range(30, 1000, 30):
-    test = updateURL.replace("rows=30", "rows=" + str(rows))
-    newURL = f"{test}"
-    r = requests.get(newURL, headers=insertHeaders, data=insertPayload)
-    data = json.loads(r.text)
-    if(r.ok == True and "response" in data):
-        newData = data["response"]["docs"]
-        time.sleep(3)
-        print(f'Getting row {rows}', 'waiting..')
-    else:
-      break
-  
-  filteredData = []
-  # Filtering out duplicate data from our request by going through each object and seeing if its already in our filtered data object.
-  for x in newData:
-    if x not in filteredData: 
-      filteredData.append(x)
-  prods = pd.DataFrame([])
-  prods = prods.from_records(pd.json_normalize(newData)) 
-  prods = prods.drop(columns=['sellByWeight','aisleName', 'prop65WarningIconRequired', 'departmentName', 'pid', 'aisleId', 'upc', 'restrictedValue', 'displayType', 'averageWeight', 'salesRank', 'id', 'featured', 'inventoryAvailable', 'pastPurchased', 'isArProduct', 'displayUnitQuantityText', 'promoEndDate', 'isMtoProduct', 'displayEstimateText', 'channelEligibility.delivery', 'channelEligibility.inStore', 'channelEligibility.pickUp', 'channelInventory.delivery', 'channelInventory.pickup', 'channelInventory.instore', 'preparationTime', 'unitQuantity', 'basePrice'], axis=1)
-  # prods.to_csv('Safeway-Baby' + str(fileName) + '.csv')
-
-  DB = {'servername': '(localdb)\MSSQLLocalDB',
-      'database': 'Safeway',
-      'driver': 'driver=SQL Server Native Client 11.0'}
-
-
-  engine = create_engine('mssql+pyodbc://' + DB['servername'] + '/' + DB['database'] + "?" + DB['driver'])
-  engine.execute('DROP TABLE IF EXISTS ' + "CookiesAndCandyAndSnacks" + tableName)
-
-# add table to sql server
-  prods.to_sql("CookiesAndCandyAndSnacks" + tableName, index=False, con=engine)
-
-  # write the DataFrame to a table in the sql database

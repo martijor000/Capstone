@@ -7,6 +7,6 @@ namespace TypeNSaveWebForm.Models.Universal
 {
     public class Items
     {
-        public List<string> GroceryList { get; set; }
+        public List<string> ItemName { get; set; }
     }
 }
