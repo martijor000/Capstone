@@ -5,21 +5,41 @@
 }
 
 
+<link href="~/Style_Sheets/HomeIndex.css" rel="stylesheet" />
 
 <div id="container">
     @using (Html.BeginForm("CalculateList", "Home", FormMethod.Post))
     {
-        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
-        <br />
-        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
-        <br />
-        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
-        <br />
-        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
-        <br />
-        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
-        <br />
-        <button type="submit">Calculate</button>
-    }
+    <div class="inputFields">
+        <input type="text" class="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item" /><input type="number" id="quantity" name="quantity" placeholder="lbs" min="1" max="5">
+    </div>
+    <br />
+    <div class="inputFields">
+        <input type="text" class="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item" /><input type="number" id="quantity" name="quantity" placeholder="lbs" min="1" max="5">
+    </div>
+    <br />
+    <div class="inputFields">
+        <input type="text" class="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item" /><input type="number" id="quantity" name="quantity" placeholder="lbs" min="1" max="5">
+    </div>
+    <br />
+    <div class="inputFields">
+        <input type="text" class="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item" /><input type="number" id="quantity" name="quantity" placeholder="lbs" min="1" max="5">
+    </div>
+    <br />
+    <div class="inputFields">
+        <input type="text" class="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item" /><input type="number" id="quantity" name="quantity" placeholder="lbs" min="1" max="5">
+    </div>
+    <br />
+    <div id="addField">
+        <input type="button" value="Add Another Item" />
+    </div>
+    <div id="calcButton">
+        <input type="button" value="Calculate" />
+        <div id="clrButton">
+            <input type="button" value="Clear" />
+        </div>
+    </div>
+
+        }
 </div>
 

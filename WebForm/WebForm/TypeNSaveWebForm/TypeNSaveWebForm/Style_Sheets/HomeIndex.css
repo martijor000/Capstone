@@ -1,0 +1,42 @@
+﻿body {
+    background-color: black;
+    text-align: center;
+}
+
+.inputFields, #calcButton , #addField{
+
+    margin: 2px;
+    color: white;
+    padding: 2px;
+}
+
+.inputFields {
+    background-color: gray;
+    display: inline-block;
+}
+
+.inputFields input{
+    background-color: gray;
+    border-style:none solid none none;
+}
+
+#calcButton input, .inputFields, #addField input{
+    width: 238px;
+    height: 26px;
+}
+
+#calcButton input, #addField input{
+    background-color: darkslategrey;
+    border-width: 0px;
+}
+
+::placeholder {
+    color: white;
+    text-align: left;
+}
+
+#clrButton{
+    display:inline-block
+}
+
+
