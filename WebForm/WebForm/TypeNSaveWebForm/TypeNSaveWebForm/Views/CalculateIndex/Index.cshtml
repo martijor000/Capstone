@@ -1,19 +1,26 @@
-﻿@model TypeNSaveWebForm.Models.Universal.Items
-
+﻿
 @{
     ViewBag.Title = "Index";
 }
 
-@for (int i = 0; i < Model.ItemName.Count; i++)
-{
-    @Html.TextBoxFor(model => model.ItemName[i])
-    <br/>
-}
+<div id="container">
+    <div id="productNames">
+    @foreach(string product in (List<string>)TempData["GrabItemProducts"])
+    {
+        <p>@product</p>
+        <br />
+    }
+    </div>
+    <div id="productPrices">
+    @foreach (double? price in (List<double?>)TempData["GrabItemPrices"])
+    {
+        <p>@price</p>
+        <br />
+    }
+    </div>
+</div>
 
-@*@foreach(string item in Model.ItemName)
-{
-    @Html.TextBox("item", item.)
-}*@
+
 
 
 

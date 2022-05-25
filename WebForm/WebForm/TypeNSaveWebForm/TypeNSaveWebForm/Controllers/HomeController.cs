@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Windows.Forms;
 using TypeNSaveWebForm.Controllers.SafewayControllers.Baby;
 using TypeNSaveWebForm.Models.Safeway.Baby;
 using TypeNSaveWebForm.Models.Universal;
@@ -11,6 +12,13 @@ namespace TypeNSaveWebForm.Controllers
 {
     public class HomeController : Controller
     {
+        private List<double?> comparePrice = new List<double?>();
+        private static AccessoryController accessoryController = new AccessoryController();
+        private List<BabyAccessory> allItems = new List<BabyAccessory>(accessoryController.Get().ToList());
+        private List<string> duplicateItems = new List<string>();
+        private List<double?> returnPrice = new List<double?>();
+        private List<string> returnItems = new List<string>();
+
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
@@ -20,39 +28,38 @@ namespace TypeNSaveWebForm.Controllers
         [HttpPost]
         public ActionResult CalculateList(Items model)
         {
-            Console.WriteLine(model.ItemName);
             if (ModelState.IsValid)
             {
-                AccessoryController accessoryController = new AccessoryController();
-                List<BabyAccessory> allItems = new List<BabyAccessory>(accessoryController.Get().ToList());
-                List<double?> comparePrice = new List<double?>();
-
-                for (int j = 0; j < model.ItemName.Count; j++)
+                
+                foreach (string listItem in model.ItemName)
                 {
-                    for (int i = 0; i < allItems.Count; i++)
-                    {
-                        if (allItems[i].name.ToLower().Contains(model.ItemName[j].ToString().ToLower()))
-                        {
-                            if (!string.IsNullOrEmpty(model.ItemName[j]))
-                            {
-                                comparePrice.Add(allItems[i].price);
-                            }
-                            else
-                            {
-                                continue;
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Nope not found");
-                        }
-                    }
-
+                    DatabaseLoop(listItem);
                 }
                 comparePrices(comparePrice);
-                TempData["GrabItemModel"] = model;
+                TempData["GrabItemProducts"] = returnItems;
+                TempData["GrabItemPrices"] = returnPrice;
             }
             return RedirectToAction("Index" , "CalculateIndex");
+        }
+
+        private void DatabaseLoop(string itemName)
+        {
+            for (int i = 0; i <  allItems.Count; i++)
+            {
+                if (allItems[i].name.ToLower().Contains(itemName.ToLower()))
+                {
+                    if (itemName != "")
+                    {
+                        duplicateItems.Add(allItems[i].name);
+                        comparePrice.Add(allItems[i].price);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            
         }
         private void comparePrices(List<double?> compare)
         {
@@ -64,7 +71,8 @@ namespace TypeNSaveWebForm.Controllers
                     {
                         if (compare[i] < compare[j])
                         {
-                            Console.WriteLine(compare[i]);
+                            returnPrice.Add(compare[i]);
+                            returnItems.Add(duplicateItems[i]);
                         }
                     }
                 }

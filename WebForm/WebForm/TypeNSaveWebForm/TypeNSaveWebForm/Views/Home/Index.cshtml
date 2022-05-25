@@ -6,20 +6,20 @@
 
 
 
-
-@using (Html.BeginForm("CalculateList", "Home", FormMethod.Post))
-{
-    <input type="text" name="ItemName" />
-    <br />
-    <input type="text" name="ItemName" />
-    <br />
-    <input type="text" name="ItemName" />
-    <br />
-    <input type="text" name="ItemName" />
-    <br />
-    <input type="text" name="ItemName" />
-    <br />
-
-    <button type="submit">Calculate</button>
-}
+<div id="container">
+    @using (Html.BeginForm("CalculateList", "Home", FormMethod.Post))
+    {
+        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
+        <br />
+        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
+        <br />
+        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
+        <br />
+        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
+        <br />
+        <input type="text" class ="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item"/>
+        <br />
+        <button type="submit">Calculate</button>
+    }
+</div>
 

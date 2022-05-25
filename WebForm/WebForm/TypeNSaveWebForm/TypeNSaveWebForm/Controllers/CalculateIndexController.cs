@@ -12,8 +12,9 @@ namespace TypeNSaveWebForm.Controllers
         // GET: CalculateIndex
         public ActionResult Index()
         {
-            Items model = TempData["GrabItemModel"] as Items;
-            return View(model);
+            List<string> tempProducts = TempData["GrabItemProducts"] as List<string>;
+            List<double?> tempPrices = TempData["GrabItemPrices"] as List<double?>;
+            return View();
         }
     }
 }
