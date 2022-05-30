@@ -160,6 +160,20 @@
     <Content Include="Models\Safeway\Baby\AccessoriesModel.edmx.diagram">
       <DependentUpon>AccessoriesModel.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\Safeway\Baby\BathSkinCares.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BathSkinCares.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Safeway\Baby\BathSkinCares.edmx.diagram">
+      <DependentUpon>BathSkinCares.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Safeway\Baby\Diapers.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Diapers.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Safeway\Baby\Diapers.edmx.diagram">
+      <DependentUpon>Diapers.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Models\Safeway\Baby\AccessoriesModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -170,6 +184,26 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AccessoriesModel.edmx</DependentUpon>
       <LastGenOutput>AccessoriesModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Safeway\Baby\BathSkinCares.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BathSkinCares.edmx</DependentUpon>
+      <LastGenOutput>BathSkinCares.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Safeway\Baby\BathSkinCares.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BathSkinCares.edmx</DependentUpon>
+      <LastGenOutput>BathSkinCares.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Safeway\Baby\Diapers.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Diapers.edmx</DependentUpon>
+      <LastGenOutput>Diapers.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Safeway\Baby\Diapers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Diapers.edmx</DependentUpon>
+      <LastGenOutput>Diapers.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -262,8 +296,45 @@
     <Compile Include="Models\Safeway\Baby\BabyAccessory.cs">
       <DependentUpon>AccessoriesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Safeway\Baby\BabyBathsAndSkinCare.cs">
+      <DependentUpon>BathSkinCares.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Safeway\Baby\BabyDiaper.cs">
+      <DependentUpon>Diapers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Safeway\Baby\BathSkinCares.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BathSkinCares.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Safeway\Baby\BathSkinCares.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BathSkinCares.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Safeway\Baby\BathSkinCares.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BathSkinCares.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Safeway\Baby\Diapers.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diapers.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Safeway\Baby\Diapers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diapers.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Safeway\Baby\Diapers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diapers.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Universal\Items.cs" />
     <Compile Include="Models\Universal\ModelViewIndex.cs" />
+    <Compile Include="Models\Universal\SafewayItemsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -290,6 +361,23 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Models\Safeway\Bakery\" />
+    <Folder Include="Models\Safeway\Beverages\" />
+    <Folder Include="Models\Safeway\Breakfast\" />
+    <Folder Include="Models\Safeway\CannedGoods\" />
+    <Folder Include="Models\Safeway\Carbs\" />
+    <Folder Include="Models\Safeway\Condiments\" />
+    <Folder Include="Models\Safeway\DairyProducts\" />
+    <Folder Include="Models\Safeway\Deli\" />
+    <Folder Include="Models\Safeway\Frozen\" />
+    <Folder Include="Models\Safeway\FruitsAndVeggies\" />
+    <Folder Include="Models\Safeway\HouseCare\" />
+    <Folder Include="Models\Safeway\International\" />
+    <Folder Include="Models\Safeway\Liquor\" />
+    <Folder Include="Models\Safeway\Meat\" />
+    <Folder Include="Models\Safeway\Personal\" />
+    <Folder Include="Models\Safeway\PetCare\" />
+    <Folder Include="Models\Safeway\Snacks\" />
     <Folder Include="Models\Walmart\" />
   </ItemGroup>
   <ItemGroup>

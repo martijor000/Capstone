@@ -12,14 +12,20 @@ namespace TypeNSaveWebForm.Models.Safeway.Baby
     using System;
     using System.Collections.Generic;
     
-    public partial class BabyAccessory
+    public partial class BabyBathsAndSkinCare
     {
-        public Nullable<double> price { get;}
-        public string unitOfMeasure { get;}
-        public string name { get;}
+        public Nullable<double> price { get; }
+        public string unitOfMeasure { get;  }
+        public string name { get; }
         public Nullable<double> pricePer { get; }
-        public string shelfName { get;}
-        public string promoDescription { get; }
+        public string shelfName { get; }
+        public string productReview_avgRating { get;}
+        public string productReview_reviewCount { get;}
+        public string productReview_isReviewWriteEligible { get;}
+        public string productReview_isReviewDisplayEligible { get;}
+        public string productReview_isForOnetimeReview { get;}
+        public string productReview_reviewTemplateType { get;}
+        public string promoDescription { get;}
         public string promoType { get;}
         public int ID { get;}
     }
