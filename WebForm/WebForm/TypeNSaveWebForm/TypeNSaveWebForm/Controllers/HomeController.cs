@@ -15,17 +15,40 @@ namespace TypeNSaveWebForm.Controllers
         private List<double?> comparePrice = new List<double?>();
         private static AccessoryController accessoryController = new AccessoryController();
         private List<BabyAccessory> allItems = new List<BabyAccessory>(accessoryController.Get().ToList());
+        private List<string> temp = new List<string>();
         private List<string> duplicateItems = new List<string>();
         private List<double?> returnPrice = new List<double?>();
         private List<string> returnItems = new List<string>();
 
         public ActionResult Index()
         {
+            ModelViewIndex modelViewIndex = new ModelViewIndex();
+            modelViewIndex.ItemsModel = new Items();
+            foreach (var item in allItems)
+            {
+                temp.Add(item.unitOfMeasure);
+            }
+            modelViewIndex.Sizes = temp.Distinct().ToList();
+            modelViewIndex.ItemsModel.ItemName = new List<string> { "", "", "", "", "" };
             ViewBag.Title = "Home Page";
-            return View();
+            return View(modelViewIndex);
         }
 
-        [HttpPost]
+        public ActionResult MyButtonAction(string buttonClicked, Items model)
+        {
+            switch (buttonClicked)
+            {
+                case "Calculate":
+                    return (CalculateList(model));
+                case "Add Another Item":
+                    return (AddItem(model));
+                case "Clear":
+                    return (ClearIndex(model));
+                default:
+                    return (View(Index()));
+            }
+        }
+
         public ActionResult CalculateList(Items model)
         {
             if (ModelState.IsValid)
@@ -77,6 +100,16 @@ namespace TypeNSaveWebForm.Controllers
                     }
                 }
             }
+        }
+        public ActionResult AddItem(Items model)
+        {
+            model.ItemName.Add("");
+            return View("Index", model);
+        }
+        public ActionResult ClearIndex(Items model)
+        {
+            ModelState.Clear();
+            return View("Index", model);
         }
     }
 }

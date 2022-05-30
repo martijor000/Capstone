@@ -39,4 +39,7 @@
     display:inline-block
 }
 
+select::placeholder{
+    color:black
+}
 
