@@ -19,19 +19,25 @@ namespace TypeNSaveWebForm.Controllers
         private List<string> duplicateItems = new List<string>();
         private List<double?> returnPrice = new List<double?>();
         private List<string> returnItems = new List<string>();
+        private ModelViewIndex modelViewIndex = new ModelViewIndex();
+        
 
         public ActionResult Index()
         {
-            ModelViewIndex modelViewIndex = new ModelViewIndex();
+            ModelViewIndexSizes();
+            modelViewIndex.ItemsModel.ItemName = new List<string> { "", "", "", "", "" };
+            ViewBag.Title = "Home Page";
+            return View(modelViewIndex);
+        }
+
+        public void ModelViewIndexSizes()
+        {
             modelViewIndex.ItemsModel = new Items();
             foreach (var item in allItems)
             {
                 temp.Add(item.unitOfMeasure);
             }
             modelViewIndex.Sizes = temp.Distinct().ToList();
-            modelViewIndex.ItemsModel.ItemName = new List<string> { "", "", "", "", "" };
-            ViewBag.Title = "Home Page";
-            return View(modelViewIndex);
         }
 
         public ActionResult MyButtonAction(string buttonClicked, Items model)
@@ -43,7 +49,7 @@ namespace TypeNSaveWebForm.Controllers
                 case "Add Another Item":
                     return (AddItem(model));
                 case "Clear":
-                    return (ClearIndex(model));
+                    return (ClearIndex());
                 default:
                     return (View(Index()));
             }
@@ -53,7 +59,6 @@ namespace TypeNSaveWebForm.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 foreach (string listItem in model.ItemName)
                 {
                     DatabaseLoop(listItem);
@@ -103,13 +108,15 @@ namespace TypeNSaveWebForm.Controllers
         }
         public ActionResult AddItem(Items model)
         {
+            ModelViewIndexSizes();
             model.ItemName.Add("");
-            return View("Index", model);
+            modelViewIndex.ItemsModel = model;
+            return View("Index", modelViewIndex);
         }
-        public ActionResult ClearIndex(Items model)
+        public ActionResult ClearIndex()
         {
             ModelState.Clear();
-            return View("Index", model);
+            return (Index());
         }
     }
 }
