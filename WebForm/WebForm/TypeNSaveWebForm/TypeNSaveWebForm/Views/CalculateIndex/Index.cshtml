@@ -5,18 +5,18 @@
 
 <div id="container">
     <div id="productNames">
-    @foreach(string product in (List<string>)TempData["GrabItemProducts"])
-    {
-        <p>@product</p>
-        <br />
-    }
+        @foreach (string product in (List<string>)TempData["GrabItemProducts"])
+        {
+            <p>@product</p>
+            foreach (double? price in (List<double?>)TempData["GrabItemPrices"])
+            {
+                <p>@price</p>
+            }
+            <br />
+        }
     </div>
     <div id="productPrices">
-    @foreach (double? price in (List<double?>)TempData["GrabItemPrices"])
-    {
-        <p>@price</p>
-        <br />
-    }
+
     </div>
 </div>
 

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DiapersModelStoreContainer" CdmEntityContainer="SafewayDiapersEntity">
+    <EntitySetMapping Name="BabyDiapers">
+      <EntityTypeMapping TypeName="DiapersModel.BabyDiaper">
+        <MappingFragment StoreEntitySet="BabyDiapers">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="unitOfMeasure" ColumnName="unitOfMeasure" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="pricePer" ColumnName="pricePer" />
+          <ScalarProperty Name="shelfName" ColumnName="shelfName" />
+          <ScalarProperty Name="productReview_avgRating" ColumnName="productReview.avgRating" />
+          <ScalarProperty Name="productReview_reviewCount" ColumnName="productReview.reviewCount" />
+          <ScalarProperty Name="productReview_isReviewWriteEligible" ColumnName="productReview.isReviewWriteEligible" />
+          <ScalarProperty Name="productReview_isReviewDisplayEligible" ColumnName="productReview.isReviewDisplayEligible" />
+          <ScalarProperty Name="productReview_isForOnetimeReview" ColumnName="productReview.isForOnetimeReview" />
+          <ScalarProperty Name="productReview_reviewTemplateType" ColumnName="productReview.reviewTemplateType" />
+          <ScalarProperty Name="promoDescription" ColumnName="promoDescription" />
+          <ScalarProperty Name="promoType" ColumnName="promoType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

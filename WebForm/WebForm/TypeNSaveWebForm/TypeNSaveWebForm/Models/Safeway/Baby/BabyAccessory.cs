@@ -14,13 +14,13 @@ namespace TypeNSaveWebForm.Models.Safeway.Baby
     
     public partial class BabyAccessory
     {
-        public Nullable<double> price { get;}
-        public string unitOfMeasure { get;}
-        public string name { get;}
-        public Nullable<double> pricePer { get; }
-        public string shelfName { get;}
-        public string promoDescription { get; }
-        public string promoType { get;}
-        public int ID { get;}
+        public Nullable<double> price { get; set; }
+        public string unitOfMeasure { get; set; }
+        public string name { get; set; }
+        public Nullable<double> pricePer { get; set; }
+        public string shelfName { get; set; }
+        public string promoDescription { get; set; }
+        public string promoType { get; set; }
+        public int ID { get; set; }
     }
 }
