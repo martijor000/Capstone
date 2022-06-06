@@ -1,44 +1,35 @@
 import requests
-import json
-import pandas as pd
-import time
-from sqlalchemy import create_engine, false, true
+from bs4 import BeautifulSoup as soup
+
+header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36'}
+
+url = "https://www.walmart.com/browse/summer-produce/c2hlbGZfaWQ6NTU5MDY2NQieie?page=1&affinityOverride=default"
+
+url_list = []
+
+for i in range(1, 2):
+    url_list.append(url.replace("page=1", "page=" + str(i)))
 
 
-def WalmartRequest(updateURL, insertHeaders, insertPayload, tableName, categoryName): 
-  for page in range(1, 100, 1):
-    test = updateURL.replace("page=1", "page=" + str(page))
-    newURL = f"{test}"
-    r = requests.get(newURL, headers=insertHeaders, data=insertPayload)
-    data = json.loads(r.text)
-    if(r.ok == false):
-        newData = data
-        time.sleep(3)
-        print(f'Getting row {page} of ' + categoryName + ' ' + tableName, 'waiting..')
-    else:
-      break
+#Create Arrays for Tags
+
+item_names = []
+price_list = []
+priceper_list = []
+
+for url in url_list:
+  result = requests.get(url)
+  bsobj = soup(result.content,'lxml')
   
-  # filteredData = []
-  # # Filtering out duplicate data from our request by going through each object and seeing if its already in our filtered data object.
-  # for x in newData:
-  #   if x not in filteredData: 
-  #     filteredData.append(x)
-  prods = pd.DataFrame([])
-  prods = prods.from_records(pd.json_normalize(data)) 
-  #prods = prods.drop(columns=['sellByWeight','aisleName', 'prop65WarningIconRequired', 'departmentName', 'pid', 'aisleId', 'upc', 'restrictedValue', 'displayType', 'averageWeight', 'salesRank', 'id', 'featured', 'inventoryAvailable', 'pastPurchased', 'isArProduct', 'displayUnitQuantityText', 'promoEndDate', 'isMtoProduct', 'displayEstimateText', 'channelEligibility.delivery', 'channelEligibility.inStore', 'channelEligibility.pickUp', 'channelInventory.delivery', 'channelInventory.pickup', 'channelInventory.instore', 'preparationTime', 'unitQuantity', 'basePrice'], axis=1)
-  prods.to_csv('Walmart' + str(categoryName) + '.csv')
+  product_name = bsobj.findAll('div',{'class':'w_At'})
+  product_price = bsobj.findAll('div',{'class':'b black f5 mr1 mr2-xl lh-copy f4-l'})
+  product_priceper = bsobj.findAll('div',{'class':'f7 f6-l gray mr1'})
+for names,price,priceper in zip(product_name,product_price, product_priceper):
+    item_names.append(names.a.span.text.strip())
+    price_list.append(price.text)
+    priceper_list.append(priceper.text)
 
-
-
-#   DB = {'servername': '(localdb)\MSSQLLocalDB',
-#       'database': 'Walmart',
-#       'driver': 'driver=SQL Server Native Client 11.0'}
-
-
-#   engine = create_engine('mssql+pyodbc://' + DB['servername'] + '/' + DB['database'] + "?" + DB['driver'])
-#   engine.execute('DROP TABLE IF EXISTS ' + categoryName + tableName)
-
-# # add table to sql server
-#   prods.to_sql(categoryName + tableName, index=False, con=engine)
-#   engine.execute("ALTER TABLE " + categoryName + tableName +  " ADD ID INT IDENTITY(1,1) not null CONSTRAINT PK_" + categoryName + tableName + " PRIMARY KEY(ID)")
-#   # write the DataFrame to a table in the sql database
+# creating a dataframe 
+import pandas as pd
+df = pd.DataFrame({'Product_Name':item_names, 'Price':price_list, 'Price_Per':product_priceper}, columns=['Product_Name', 'Price', 'PricePer'])
+df.to_csv('Walmart Test' + '.csv')
