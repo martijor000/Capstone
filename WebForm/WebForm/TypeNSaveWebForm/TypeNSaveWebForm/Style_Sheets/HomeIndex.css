@@ -11,9 +11,8 @@
 }
 
 #calcButton input, #clrButton input, #addbtn input {
-    background-color: darkslategrey;
     border-width: 0px;
-    padding: 1%;
+    padding: 0.5%;
     width: 100%;
     height: 100%;
 
@@ -32,3 +31,25 @@ select::placeholder{
     color:black
 }
 
+select{
+    padding:.42%;
+}
+.itemtxtbox, .quantity{
+    padding: 0.25%
+}
+
+#clrButton input{
+    background-color: rgb(185, 45, 45);
+}
+
+#calcButton input{
+    background-color: rgb(116 181 90);
+}
+
+#addbtn input {
+    background-color: rgb(137 126 126);
+}
+
+h1{
+    color: white;
+}

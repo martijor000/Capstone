@@ -116,7 +116,7 @@ namespace TypeNSaveWebForm.Controllers
         public ActionResult ClearIndex()
         {
             ModelState.Clear();
-            return (Index());
+            return RedirectToAction("Index");
         }
     }
 }
