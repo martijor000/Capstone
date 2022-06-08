@@ -3,40 +3,29 @@
     text-align: center;
 }
 
-.inputFields, #calcButton , #addField{
+#calcButton , #addbtn, #clrButton{
 
     margin: 2px;
     color: white;
-    padding: 2px;
+    padding: 1px;
 }
 
-.inputFields {
-    background-color: gray;
-    display: inline-block;
-}
-
-.inputFields input{
-    background-color: gray;
-    border-style:none solid none none;
-}
-
-#calcButton input, .inputFields, #addField input{
-    width: 238px;
-    height: 26px;
-}
-
-#calcButton input, #addField input{
+#calcButton input, #clrButton input, #addbtn input {
     background-color: darkslategrey;
     border-width: 0px;
+    padding: 1%;
+    width: 100%;
+    height: 100%;
+
+}
+
+.col-sm-12{
+    margin-top: 0.5%;
 }
 
 ::placeholder {
-    color: white;
+    color: black;
     text-align: left;
-}
-
-#clrButton{
-    display:inline-block
 }
 
 select::placeholder{

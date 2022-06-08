@@ -8,31 +8,41 @@
 
 <link href="~/Style_Sheets/HomeIndex.css" rel="stylesheet" />
 
-<div id="container">
+<div class="row">
     @using (Html.BeginForm("MyButtonAction", "Home", FormMethod.Post))
     {
         for (int i = 0; i < Model.ItemsModel.ItemName.Count; i++)
         {
-            <div class="inputFields">
-                <input type="text" class="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item" value="@Model.ItemsModel.ItemName[i]" /><input type="number" id="quantity" name="quantity" placeholder="Amount" min="1" max="100">
+            <div class="col-sm-12">
+                <input type="text" class="itemtxtbox" name="ItemName" placeholder="Enter Grocery Item" value="@Model.ItemsModel.ItemName[i]" />
+                <input type="number" id="quantity" name="quantity" placeholder="Amount" min="1" max="100">
                 <select name="Size" id="Size" style="color:black">
                     @for (int j = 0; j < Model.Sizes.Count; j++)
                     {
-                        <option class="options" style="color:black"  value="@Model.Sizes[j]">@Model.Sizes[j]</option>
+                        <option class="options" style="color:black" value="@Model.Sizes[j]">@Model.Sizes[j]</option>
 
                     }
                 </select>
             </div>
             <br />
         }
-
-        <input type="submit" name="buttonClicked" value="Add Another Item" />
-        <div id="calcButton">
-            <input type="submit" name="buttonClicked" value="Calculate" />
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="addbtn">
+                <input type="submit" name="buttonClicked" value="Add Another Item" />
+            </div>
         </div>
-        <div id="clrButton">
-            <input type="submit" name="buttonClicked" value="Clear" />
+        <div class="col-sm-12">
+            <div id="calcButton">
+                <input type="submit" name="buttonClicked" value="Calculate" />
+            </div>
         </div>
+        <div class="col-sm-12">
+            <div id="clrButton">
+                <input type="submit" name="buttonClicked" value="Clear" />
+            </div>
+        </div>
+    </div>
 
     }
 </div>

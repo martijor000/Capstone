@@ -9,11 +9,11 @@ headers = {
 
 payload={}
 
-url = "https://www.walmart.com/browse/summer-produce/c2hlbGZfaWQ6NTU5MDY2NQieie?page=1"
+url = "https://www.fredmeyer.com/pl/fresh-vegetables/06112?page=1"
 
 url_list = []
 
-for i in range(1, 2):
+for i in range(1, 30):
     url_list.append(url.replace("page=1", "page=" + str(i)))
 
 
@@ -27,7 +27,7 @@ for url in url_list:
   result = requests.get(url, headers=headers, data=payload)
   bsobj = soup(result.content,'lxml')
   
-  product_name = bsobj.findAll('div',{'class':'w_At'})
+  product_name = bsobj.findAll('h3',{'class':'kds-Text--l text-default-900 font-secondary font-500 mt-8 mb-0'})
   product_price = bsobj.findAll('div',{'class':'b black f5 mr1 mr2-xl lh-copy f4-l'})
   product_priceper = bsobj.findAll('div',{'class':'f7 f6-l gray mr1'})
 for names,price,priceper in zip(product_name,product_price, product_priceper):
