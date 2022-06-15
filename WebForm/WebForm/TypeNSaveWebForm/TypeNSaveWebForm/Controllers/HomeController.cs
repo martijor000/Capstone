@@ -12,20 +12,22 @@ namespace TypeNSaveWebForm.Controllers
 {
     public class HomeController : Controller
     {
-        private List<double?> comparePrice = new List<double?>();
         private static AccessoryController accessoryController = new AccessoryController();
-        private List<BabyAccessory> allItems = new List<BabyAccessory>(accessoryController.Get().ToList());
-        private List<string> temp = new List<string>();
-        private List<string> duplicateItems = new List<string>();
-        private List<double?> returnPrice = new List<double?>();
-        private List<string> returnItems = new List<string>();
         private ModelViewIndex modelViewIndex = new ModelViewIndex();
-        
+        private List<BabyAccessory> allItems = new List<BabyAccessory>(accessoryController.Get().ToList());
+
+        private List<double?> returnPrice = new List<double?>();
+        private List<double?> returnSinglePrice = new List<double?>();
+        private List<string> returnItems = new List<string>();
+        private List <int> itemIndex = new List<int>();
+        private List<int> amtIndex = new List<int>();
+
 
         public ActionResult Index()
         {
             ModelViewIndexSizes();
             modelViewIndex.ItemsModel.ItemName = new List<string> { "", "", "", "", "" };
+            modelViewIndex.ItemsModel.ItemAmount = new List<int> {1, 1, 1, 1, 1 };
             ViewBag.Title = "Home Page";
             return View(modelViewIndex);
         }
@@ -33,11 +35,13 @@ namespace TypeNSaveWebForm.Controllers
         public void ModelViewIndexSizes()
         {
             modelViewIndex.ItemsModel = new Items();
+            modelViewIndex.Sizes = new List<string>();
             foreach (var item in allItems)
             {
-                temp.Add(item.unitOfMeasure);
+                modelViewIndex.Sizes.Add(item.unitOfMeasure);
             }
-            modelViewIndex.Sizes = temp.Distinct().ToList();
+            modelViewIndex.Sizes = modelViewIndex.Sizes.Distinct().ToList();
+
         }
 
         public ActionResult MyButtonAction(string buttonClicked, Items model)
@@ -59,50 +63,96 @@ namespace TypeNSaveWebForm.Controllers
         {
             if (ModelState.IsValid)
             {
-                foreach (string listItem in model.ItemName)
+
+                if (DatabaseLoop(model))
                 {
-                    DatabaseLoop(listItem);
+                    comparePrices(itemIndex, model);
+                    StoreTempData(model);
                 }
-                comparePrices(comparePrice);
+                
                 TempData["GrabItemProducts"] = returnItems;
                 TempData["GrabItemPrices"] = returnPrice;
+                TempData["GrabSinglePrices"] = returnSinglePrice;
             }
             return RedirectToAction("Index" , "CalculateIndex");
         }
 
-        private void DatabaseLoop(string itemName)
+        private bool DatabaseLoop(Items model)
         {
-            for (int i = 0; i <  allItems.Count; i++)
+            for (int i = 0; i < model.ItemName.Count; i++)
             {
-                if (allItems[i].name.ToLower().Contains(itemName.ToLower()))
+                if (model.ItemName[i] != "")
                 {
-                    if (itemName != "")
+                    for (int j = 0; j < allItems.Count; j++)
                     {
-                        duplicateItems.Add(allItems[i].name);
-                        comparePrice.Add(allItems[i].price);
-                    }
-                    else
-                    {
-                        break;
+                        if (allItems[j].name.ToLower().Contains(model.ItemName[i].ToLower()))
+                        {
+                            itemIndex.Add(j);
+                        }
                     }
                 }
             }
             
-        }
-        private void comparePrices(List<double?> compare)
-        {
-            if (compare != null)
+            if(itemIndex.Count != 0)
             {
-                for (int i = 0; i < compare.Count; i++)
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        private void comparePrices(List<int> ind, Items model)
+        {
+            if (ind != null)
+            {
+                for (int i = 0; i < ind.Count; i++)
                 {
-                    for (int j = 0; j < compare.Count; j++)
+                    for (int j = 0; j < ind.Count; j++)
                     {
-                        if (compare[i] < compare[j])
+                        if (allItems[ind[i]].price < allItems[ind[j]].price)
                         {
-                            returnPrice.Add(compare[i]);
-                            returnItems.Add(duplicateItems[i]);
+                            amtType(allItems[ind[i]].unitOfMeasure, allItems[ind[i]].name, allItems[ind[i]].price, allItems[ind[i]].pricePer);
+
+                            break;
                         }
                     }
+                }
+            }
+        }
+
+        private void amtType(string type, string name, double? price, double? pricePer)
+        {
+            returnItems.Add(name);
+
+                switch (type)
+                {
+                    case "CT":
+                        returnSinglePrice.Add(price);
+                        break;
+                    case "LB":
+                        returnSinglePrice.Add(pricePer);
+                        break;
+                    case "OZ":
+                        returnSinglePrice.Add(pricePer);
+                        break;
+                    case "EA":
+                        returnSinglePrice.Add(price);
+                        break;
+                    case "PT":
+                        returnSinglePrice.Add(pricePer);
+                        break;
+                }
+        }
+
+        private void StoreTempData(Items model)
+        {
+            for (int i = 0; i < model.ItemName.Count; i++)
+            {
+                if(model.ItemName[i] != "")
+                {
+                    returnPrice.Add(returnSinglePrice[i] * model.ItemAmount[i]);
                 }
             }
         }

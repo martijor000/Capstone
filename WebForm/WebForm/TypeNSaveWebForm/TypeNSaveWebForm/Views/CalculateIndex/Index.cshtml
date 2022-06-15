@@ -2,23 +2,44 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<link href="~/Style_Sheets/CalculateIndex.css" rel="stylesheet" />
 <div id="container">
     <div id="productNames">
-        @foreach (string product in (List<string>)TempData["GrabItemProducts"])
-        {
-            <p>@product</p>
-            foreach (double? price in (List<double?>)TempData["GrabItemPrices"])
-            {
-                <p>@price</p>
-            }
-            <br />
-        }
-    </div>
-    <div id="productPrices">
+        <div class="row">
+            <div class="col-sm-6">
+                @foreach (string product in (List<string>)TempData["GrabItemProducts"])
+                {
+                    <p>@product</p>
 
+                    <br />
+                }
+            </div>
+            <div class="col-sm-2">
+                @foreach (double? singlePrice in (List<double?>)TempData["GrabSinglePrices"])
+                {
+                    <p>@singlePrice</p>
+                }
+            </div>
+            <div class="col-sm-2">
+                @foreach (int multiplier in (List<int>)TempData["Multiplier"])
+                {
+                    <p>X</p>
+                    <p>@multiplier </p>
+                    <p>=</p>
+                }
+            </div>
+            <div class="col-sm-2">
+                @foreach (double? price in (List<double?>)TempData["GrabItemPrices"])
+                {
+                    <p>@price</p>
+                }
+            </div>
+        </div>
+        </div>
+        <div id="total">
+            <h1>@TempData["TotalPrice"]</h1>
+        </div>
     </div>
-</div>
 
 
 

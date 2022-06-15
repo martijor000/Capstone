@@ -8,5 +8,6 @@ namespace TypeNSaveWebForm.Models.Universal
     public class Items
     {
         public List<string> ItemName { get; set; }
+        public List<int> ItemAmount { get; set; }
     }
 }

@@ -14,6 +14,17 @@ namespace TypeNSaveWebForm.Controllers
         {
             List<string> tempProducts = TempData["GrabItemProducts"] as List<string>;
             List<double?> tempPrices = TempData["GrabItemPrices"] as List<double?>;
+            List<double?> tempSinglePrices = TempData["GrabSinglePrices"] as List<double?>;
+            List<int> multiplier = new List<int>();
+
+            double? totalPrice = 0;
+            for(int i = 0; i < tempPrices.Count; i++)
+            {
+                multiplier.Add(Convert.ToInt32(tempPrices[i] / tempSinglePrices[i]));
+                totalPrice += tempPrices[i];
+            }
+            TempData["TotalPrice"] = totalPrice;
+            TempData["Multiplier"] = multiplier; 
             return View();
         }
     }
